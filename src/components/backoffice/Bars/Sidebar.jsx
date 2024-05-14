@@ -14,6 +14,7 @@ import {
   ShoppingBasket,
   Cloudy,
   Folder,
+  FolderOpen
 } from "lucide-react";
 const Sidebar = () => {
   const [active, setActive] = useState(1);
@@ -29,7 +30,7 @@ const Sidebar = () => {
       </Link>
 
       <div className="space-y-3 flex flex-col mt-14">
-        <button>
+        <button onClick={() => setActive(1)}>
           <Link
             href="/dashboard"
             className={cn("flex items-center space-x-2 px-6 py-2 border-l-4", {
@@ -47,7 +48,9 @@ const Sidebar = () => {
               "border-green-600": active === 2,
             })}
           >
-            <Folder />
+            {
+              active === 2 ? ( <FolderOpen /> ) : ( <Folder /> )
+            }
             <span>Catalogue</span>
           </Link>
         </button>
