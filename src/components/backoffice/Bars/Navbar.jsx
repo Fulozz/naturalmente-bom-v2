@@ -80,7 +80,6 @@ const Navbar = ({ user }) => {
                             <p>{item.date}</p>
                           </div>
                         </div>
-                        <button><X/></button>
                       </div>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator/>
@@ -88,12 +87,6 @@ const Navbar = ({ user }) => {
                   ) 
                 })
               }
-              <DropdownMenuItem>
-              <button className="flex items-end space-x-2">
-                <LogOut className="mr-2 h-4 w-4" />
-                <span>LogOut</span>
-              </button>
-            </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
       </div>

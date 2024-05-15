@@ -10,9 +10,9 @@ import {
   Users,
   User,
   Settings,
-  Compass,
+  Truck,
   Wheat,
-  ShoppingBasket,
+  Warehouse,
   Cloudy,
   Folder,
   FolderOpen
@@ -20,7 +20,7 @@ import {
 import { useTheme } from "next-themes";
 const Sidebar = () => {
   const [active, setActive] = useState(1);
-  const theme = useTheme().theme
+
   return (
     <div className="bg-slate-50 dark:bg-slate-700 space-y-6 w-64 h-screen text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-0 z-42 ">
       <Link className="" href="#">
@@ -74,7 +74,9 @@ const Sidebar = () => {
               "border-green-600": active === 4,
             })}
           >
-            <ShoppingBasket className="" />
+            <Warehouse  className={cn("", {
+              "swing_15deg" : active === 4
+            })}/>
             <span>Markets</span>
           </Link>
         </button>
@@ -96,7 +98,7 @@ const Sidebar = () => {
               "border-green-600": active === 6,
             })}
           >
-            <Compass />
+            <Truck />
             <span>Orders</span>
           </Link>
         </button>

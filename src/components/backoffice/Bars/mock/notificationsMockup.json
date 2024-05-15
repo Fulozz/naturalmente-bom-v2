@@ -17,7 +17,7 @@
         "id": 3,
         "name": "Green Grapes",
         "type": "stock in",
-        "stock" : "In Stock",
+        "stock" : "Stock Out",
         "date" : "Dec 14 2024 - 14:30"
     },
     {

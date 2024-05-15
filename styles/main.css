@@ -1,6 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@keyframes swing_15deg {
+  0% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.swing_15deg {
+  animation: swing_15deg 1s ease-in-out both;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

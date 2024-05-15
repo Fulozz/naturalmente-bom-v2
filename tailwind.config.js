@@ -66,16 +66,16 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "swing": {
-          '0%': { transform: "rotate(-15deg)" },
-          '50%': { transform: "rotate(15deg)" },
-          '100%' : { transform: "rotate(0deg)" },
+        "animate-swing_15": {
+          '0%'  : { transform: 'rotate(15deg)'},
+          '50%' : { transform: 'rotate(-15deg)' },
+          '100%': { transform: 'rotate(0deg)'},
         }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "animation-swing-15deg": "swing 1s ease-in-out",
+        "swing_15": "animate-swing_15 1s ease-in-out",
       },
     },
   },
