@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, {useState} from "react";
 import {
   Sun,
   User,
@@ -31,6 +32,13 @@ import notifications from './mock/notificationsMockup.json'
 import { cn } from "@/src/lib/cn";
 import ThemeSwitcher from './ThemeSwitcher';
 const Navbar = ({ user }) => {
+  const [notificationCount, setNotificationCount] = useState(user.userNotification); // Manage count with state (optional)
+
+  const handleNotificationClick = () => {
+    // Handle notification click logic here (e.g., mark all notifications as read)
+    setNotificationCount(0); // Update notification count to 0
+  };
+
   return (
     <div className="flex items-center justify-between bg-slate-100 dark:bg-slate-800 text-slate-50 h-20 py-8 px-4 fixed top-0 w-full pr-[17rem] ">
       <button>

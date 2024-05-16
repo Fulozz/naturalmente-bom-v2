@@ -74,9 +74,7 @@ const Sidebar = () => {
               "border-green-600": active === 4,
             })}
           >
-            <Warehouse  className={cn("", {
-              "swing_15deg" : active === 4
-            })}/>
+            <Warehouse />
             <span>Markets</span>
           </Link>
         </button>
