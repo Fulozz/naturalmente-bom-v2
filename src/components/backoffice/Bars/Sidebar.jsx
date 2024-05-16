@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import logo_light_mode from "@/public/logo_light_mode.png";
-import logo_dark_mode from "@/public/logo_dark_mode.png";
 import Image from "next/image";
+import { usePathname} from "next/navigation"
 import { cn } from "@/src/lib/cn";
 import {
   LayoutGrid,
@@ -15,11 +15,12 @@ import {
   Warehouse,
   ExternalLink,
   Folder,
-  FolderOpen
+  LogOut
 } from "lucide-react";
 
 const Sidebar = () => {
   const [active, setActive] = useState(1);
+  const pathname = usePathname()
   const sidebarLinks = [
     {
       title: "Dashboard",
@@ -89,7 +90,6 @@ const Sidebar = () => {
                   href={item.href}
                   className={cn("flex items-center space-x-2 px-6 py-2 border-l-4", {
                     "border-green-600": active === i,
-                    "" : item.title === "settings"
                   })}
                 >
                   <Icon />
@@ -97,9 +97,13 @@ const Sidebar = () => {
               </Link>
             );
           })
-          }
-
-        
+        }
+        <div className="px-6 py-2 items-center justify-center">
+            <button className=" bg-green-600 text-white text-bold rounded-md flex space-x-2 px-6 py-2">
+              <LogOut />
+              <span>Sair</span>
+            </button>
+        </div>
       </div>
     </div>
   );
