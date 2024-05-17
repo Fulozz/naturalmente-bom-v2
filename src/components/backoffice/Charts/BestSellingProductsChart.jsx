@@ -60,7 +60,7 @@ const options = {
 };
   return (
     <div className="bg-slate-50 dark:bg-slate-700 text-emerald-700 dark:text-slate-50 p-8 rounded-lg shadow-xl">
-      <h2 className="text-xl font-bold mb-4">Best Selling Products</h2>
+      <h2 className="text-xl font-bold mb-4">Produtos mais vendidos</h2>
       <Pie
         data={data}
         options={options}

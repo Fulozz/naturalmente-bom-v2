@@ -16,13 +16,13 @@ const WeeklySales = () => {
     // Mockup da requisição da API
   const tabs = [
     {
-      title: "Sales",
-      type: "sale",
+      title: "Vendas",
+      type: "venda",
       data: {
         labels,
         datasets: [
           {
-            label: 'Sales',
+            label: 'Vendas',
             data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
             borderColor: 'rgb(255, 99, 132)',
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
@@ -31,13 +31,13 @@ const WeeklySales = () => {
       }
     },
     {
-      title: "Orders",
-      type: "orders",
+      title: "Pedidos",
+      type: "pedidos",
       data:  {
         labels,
         datasets: [
           {
-            label: 'Orders',
+            label: 'Pedidos',
             data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
             borderColor: 'rgb(0, 137, 132)',
             backgroundColor: 'rgba(0, 137, 132, 0.5)',
@@ -83,7 +83,7 @@ const options = {
 
   return (
     <div className="bg-slate-50 dark:bg-slate-700 text-emerald-700 dark:text-slate-50 p-8 rounded-lg shadow-xl">
-      <h2 className="text-xl font-bold">Weekly Sales</h2>
+      <h2 className="text-xl font-bold">Vendas da semana</h2>
       <div className="p-4">
         <div className="text-sm font-medium text-center border-b text-gray-400  border-gray-200 dark:text-gray-400 dark:border-gray-700">
           <ul className="flex flex-wrap -mb-px">

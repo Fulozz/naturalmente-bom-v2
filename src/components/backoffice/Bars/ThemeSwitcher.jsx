@@ -14,7 +14,7 @@ const ThemeSwitcher = () => {
     if (!mounted) return null;
   return (
     <div>
-        <button className={cn("w-fit p-2 rounded-md hover:scale-110 active:scale-100 duration-200 bg-slate-100 dark:bg-[#212833]",{
+        <button className={cn("w-fit p-2 rounded-md hover:scale-110 active:scale-100 duration-200 bg-slate-100 dark:bg-slate-800",{
             "text-slate-800 dark:text-slate-50": theme === 'light',
             "text-slate-50 dark:text-slate-800": theme === 'dark',
         })} onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}> {theme === 'light' ? <Moon className="text-green-600" /> : <Sun className="text-green-600"/>} </button>

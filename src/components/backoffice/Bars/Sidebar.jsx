@@ -19,7 +19,6 @@ import {
 } from "lucide-react";
 
 const Sidebar = () => {
-  const [active, setActive] = useState(1);
   const pathname = usePathname()
   const sidebarLinks = [
     {
@@ -28,7 +27,7 @@ const Sidebar = () => {
       href:"/dashboard"
     },
     {
-      title: "Catalogue",
+      title: "Catalogo",
       icon: Folder ,
       href:"/dashboard/catalogue"
       
@@ -44,7 +43,7 @@ const Sidebar = () => {
       href:"/dashboard/markets"
     },
     {
-      title: "Orders",
+      title: "Pedidos",
       icon: Truck ,
       href:"/dashboard/orders"
     },
@@ -58,7 +57,7 @@ const Sidebar = () => {
       href:"/dashboard/staff"
     },
     {
-      title: "Settings",
+      title: "Configurações",
       icon: Settings ,
       href:"/dashboard/settings"
     },
@@ -70,7 +69,7 @@ const Sidebar = () => {
     },
   ]
   return (
-    <div className="bg-slate-50 dark:bg-slate-700 space-y-6 w-64 h-screen text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-0 z-42 ">
+    <div className="bg-slate-50 dark:bg-slate-700 space-y-6 w-64 h-screen text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-0 z-50 ">
       <Link className="" href="#">
         <Image
               src={logo_light_mode}
@@ -89,7 +88,7 @@ const Sidebar = () => {
                 key={i}
                   href={item.href}
                   className={cn("flex items-center space-x-2 px-6 py-2 border-l-4", {
-                    "border-green-600": active === i,
+                    "border-emerald-600 text-emerald-500": item.href === pathname,
                   })}
                 >
                   <Icon />
@@ -98,8 +97,8 @@ const Sidebar = () => {
             );
           })
         }
-        <div className="px-6 py-2 items-center justify-center">
-            <button className=" bg-green-600 text-white text-bold rounded-md flex space-x-2 px-6 py-2">
+        <div className="px-6 py-2 ">
+            <button className=" bg-green-600 text-white items-center justify-center text-bold rounded-md flex space-x-3 px-6 py-3">
               <LogOut />
               <span>Sair</span>
             </button>

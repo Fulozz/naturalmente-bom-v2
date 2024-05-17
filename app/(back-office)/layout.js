@@ -1,9 +1,12 @@
-
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import Navbar from '@/src/components/backoffice/Bars/Navbar';
 import Sidebar from '@/src/components/backoffice/Bars/Sidebar';
 import profileImage from './mock/image/profileImage.png'
+import { cn } from '@/src/lib/cn';
 const layout = ({children}) => {
+  const [isActive, setIsActive] = useState(true);
+
   // Query of the database userInfo
   const user = {
     "userId" : 123,
@@ -15,10 +18,14 @@ const layout = ({children}) => {
   }
   return (
     <div className='flex'>
-        <Sidebar />
-        <div className='lg:ml-64  bg-slate-100 min-h-screen w-full '> 
+        {
+          isActive ? (<Sidebar />) : null
+        }
+        <div className={cn('bg-slate-100 min-h-screen w-full', {
+          "ml-64" : isActive === true
+        })}> 
         {/*TODO: Header*/} 
-            <Navbar user={user} />
+            <Navbar user={user} setIsActive={setIsActive} />
             <main className='p-8 bg-slate-100 dark:bg-slate-900 text-slate-50 mt-16'>{children}</main>
         {/*TODO: Main*/} 
         </div>

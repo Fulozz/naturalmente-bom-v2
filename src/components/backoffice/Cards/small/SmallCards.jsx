@@ -1,27 +1,26 @@
 import React from 'react'
 import SmallCard from './SmallCard'
-import { ShoppingCart } from 'lucide-react';
 
 const SmallCards = () => {
   const orderStatus = [
     {
       id: 1,
-      title: "Total Order",
+      title: "Todos os pedidos",
       numbers: 505,
     },
     {
       id: 2,
-      title: "Pending orders",
+      title: "Pedidos em andamento",
       numbers: 185,  
     },
     {
       id: 3,
-      title: "Orders processing",
+      title: "Pedidos em processo",
       numbers: 45,   
     },
     {
       id: 4,
-      title: "Orders Deliverd",
+      title: "Pedidos enviados",
       numbers: 306,
     },
 
