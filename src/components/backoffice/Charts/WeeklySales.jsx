@@ -1,19 +1,36 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { faker } from '@faker-js/faker';
+import { faker } from "@faker-js/faker";
 import { Line } from "react-chartjs-2";
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-import getLastSevenDaysLabels from './utils/getLastSevenDaysLabels';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import getLastSevenDaysLabels from "./utils/getLastSevenDaysLabels";
 import { useTheme } from "next-themes";
-ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip,Legend );
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const WeeklySales = () => {
-    // 
-    const today = new Date();
-    const labels = getLastSevenDaysLabels(today)
-    const theme = useTheme().theme
+  //
+  const today = new Date();
+  const labels = getLastSevenDaysLabels(today);
+  const theme = useTheme().theme;
 
-    // Mockup da requisição da API
+  // Mockup da requisição da API
   const tabs = [
     {
       title: "Vendas",
@@ -22,64 +39,66 @@ const WeeklySales = () => {
         labels,
         datasets: [
           {
-            label: 'Vendas',
-            data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-          }
+            label: "Vendas",
+            data: labels.map(() =>
+              faker.datatype.number({ min: -1000, max: 1000 })
+            ),
+            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgba(255, 99, 132, 0.5)",
+          },
         ],
-      }
+      },
     },
     {
       title: "Pedidos",
       type: "pedidos",
-      data:  {
+      data: {
         labels,
         datasets: [
           {
-            label: 'Pedidos',
-            data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-            borderColor: 'rgb(0, 137, 132)',
-            backgroundColor: 'rgba(0, 137, 132, 0.5)',
-            
-          }
+            label: "Pedidos",
+            data: labels.map(() =>
+              faker.datatype.number({ min: -1000, max: 1000 })
+            ),
+            borderColor: "rgb(0, 137, 132)",
+            backgroundColor: "rgba(0, 137, 132, 0.5)",
+          },
         ],
-      }
-    }
-  ] 
- 
-
-const [chartToDisplay, setChartToDisplay] = useState(tabs[0].type);
-
-// Configuração do Chart
-const options = {
-  responsive: true,
-  maintainAspectRatio: true,
-  aspectRatio: 1.5,
-  plugins: {
-    legend: {
-      position: 'top',
-    },
-  },
-  scales: {
-    x: {
-      grid: {
-        color: theme === 'dark' ? 'rgb(100, 116, 139)' : 'rgb(203, 213, 225)',
       },
-      ticks: {
-        color: theme === 'dark' ? 'rgb(226, 232, 240)' : 'rgb(30 41 59)',
-      }
     },
-    y: {
-      grid: {
-        color: theme === 'dark' ? 'rgb(100, 116, 139)' : 'rgb(203, 213, 225)',
+  ];
+
+  const [chartToDisplay, setChartToDisplay] = useState(tabs[0].type);
+
+  // Configuração do Chart
+  const options = {
+    responsive: true,
+    maintainAspectRatio: true,
+    aspectRatio: 1.5,
+    plugins: {
+      legend: {
+        position: "top",
       },
-      ticks: {
-        color: theme === 'dark' ? 'rgb(226, 232, 240)' : 'rgb(30, 41, 59)',
-      }
-    }
-  }
-}
+    },
+    scales: {
+      x: {
+        grid: {
+          color: theme === "dark" ? "rgb(100, 116, 139)" : "rgb(203, 213, 225)",
+        },
+        ticks: {
+          color: theme === "dark" ? "rgb(226, 232, 240)" : "rgb(30 41 59)",
+        },
+      },
+      y: {
+        grid: {
+          color: theme === "dark" ? "rgb(100, 116, 139)" : "rgb(203, 213, 225)",
+        },
+        ticks: {
+          color: theme === "dark" ? "rgb(226, 232, 240)" : "rgb(30, 41, 59)",
+        },
+      },
+    },
+  };
 
   return (
     <div className="bg-slate-50 dark:bg-slate-700 text-emerald-700 dark:text-slate-50 p-8 rounded-lg shadow-xl">
@@ -106,17 +125,12 @@ const options = {
           </ul>
         </div>
         {/* Chart to display */}
-        {
-          tabs.map((tab, i) => {
-            if(chartToDisplay === tab.type){
-              return (
-                  <Line options={options} data={tab.data} key={i} />
-              )
-            }
-            return null
-           
-          })
-        }
+        {tabs.map((tab, i) => {
+          if (chartToDisplay === tab.type) {
+            return <Line options={options} data={tab.data} key={i} />;
+          }
+          return null;
+        })}
       </div>
     </div>
   );

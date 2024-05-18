@@ -1,5 +1,5 @@
-import React from 'react'
-import SmallCard from './SmallCard'
+import React from "react";
+import SmallCard from "./SmallCard";
 
 const SmallCards = () => {
   const orderStatus = [
@@ -11,30 +11,26 @@ const SmallCards = () => {
     {
       id: 2,
       title: "Pedidos em andamento",
-      numbers: 185,  
+      numbers: 185,
     },
     {
       id: 3,
       title: "Pedidos em processo",
-      numbers: 45,   
+      numbers: 45,
     },
     {
       id: 4,
       title: "Pedidos enviados",
       numbers: 306,
     },
-
-    
-  ]
+  ];
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-6">
-      {
-        orderStatus.map((item, index)=> {
-          return <SmallCard key={index} data={item} />
-        })
-      }
+      {orderStatus.map((item, index) => {
+        return <SmallCard key={index} data={item} />;
+      })}
     </div>
-  )
-}
+  );
+};
 
-export default SmallCards
+export default SmallCards;
