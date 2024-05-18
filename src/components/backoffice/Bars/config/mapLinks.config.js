@@ -6,31 +6,39 @@ import {
   Warehouse,
   Settings,
   ContactRound,
+  Boxes,
+  LayoutList,
+  SendToBack,
+  ScanSearch,
+  MonitorPlay,
+
 } from "lucide-react";
+
 export const catalogueLinks = [
   {
-    title: "Attributes",
-    href: "/dashboard/attributes",
-  },
-  {
-    title: "Banners",
-    href: "/dashboard/banners",
+    title: "Products",
+    href: "/dashboard/products",
+    icon: Boxes 
   },
   {
     title: "Categories",
     href: "/dashboard/categories",
+    icon: LayoutList
+  },
+  {
+    title: "Attributes",
+    href: "/dashboard/attributes",
+    icon: SendToBack
   },
   {
     title: "Coupons",
     href: "/dashboard/coupons",
+    icon: ScanSearch
   },
   {
-    title: "Products",
-    href: "/dashboard/products",
-  },
-  {
-    title: "Sliders",
+    title: "Store Sliders",
     href: "/dashboard/sliders",
+    icon: MonitorPlay
   },
 ];
 

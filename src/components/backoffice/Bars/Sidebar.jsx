@@ -8,17 +8,11 @@ import { cn } from "@/src/lib/cn";
 import { sidebarLinks, catalogueLinks } from "./config/mapLinks.config";
 import { LayoutGrid, LogOut, Folder, FolderOpen, ChevronRight, Minus } from "lucide-react";
 
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/src/components/ui/collapsible";
+import SidebarCollapse from "./sidebarCollapse/SidebarCollapse.sidebar";
 const Sidebar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const folderController = () => {
-    setIsOpen(!isOpen)
-  }
+  
   return (
     <div className="bg-slate-50 dark:bg-slate-700 space-y-6 w-64 h-screen text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-0 z-50 ">
       <Link className="" href="#">
@@ -41,38 +35,8 @@ const Sidebar = () => {
           <span>Dashboard</span>
         </Link>
 
-
-          <Collapsible>
-            <CollapsibleTrigger 
-              onClick={folderController}
-              className={cn("flex items-center space-x-6 px-6 py-2", {
-                    "border-emerald-600 text-emerald-500": null,
-                  })}>
-                  <div className="flex items-center space-x-3 ">
-                    {
-                      isOpen === true ? <FolderOpen /> : <Folder />
-                    }
-                    <span>Catalogo</span>
-                  </div>
-                  <ChevronRight />
-            </CollapsibleTrigger>
-            {catalogueLinks.map((item, i) => {
-              return (
-                <CollapsibleContent key={i} className="px-3 pl-6" >
-                  <Link
-                    href={item.href}
-                    className={cn("flex items-center space-x-3 px-6 py-2 pl-6 ", {
-                      " text-emerald-500":
-                        item.href === pathname,
-                    })}
-                  >
-                    <Minus />
-                    <span className="text-sm">{item.title}</span>
-                  </Link>
-                </CollapsibleContent>
-              );
-            })}
-          </Collapsible>
+          <SidebarCollapse setIsOpen={setIsOpen}/>
+          
 
    
         {sidebarLinks.map((item, i) => {
