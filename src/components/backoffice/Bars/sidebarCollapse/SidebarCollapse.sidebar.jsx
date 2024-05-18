@@ -18,7 +18,8 @@ const SidebarCollapse = ({setIsOpen}) => {
     const folderController = () => {
         setIsOpen(!isOpen)
       }
-
+   
+    
   return (
     <Collapsible className="">
             <CollapsibleTrigger 
@@ -33,20 +34,20 @@ const SidebarCollapse = ({setIsOpen}) => {
                     <span>Catalogo</span>
                   </div>
             </CollapsibleTrigger>
-            <CollapsibleContent  className="rounded-lg space-x-6 px-3 py-2 pl-6 dark:bg-slate-800 " >
+            <CollapsibleContent  className="rounded-lg space-x-2 px-3 py-2 pl-6 dark:bg-slate-800 " >
             {catalogueLinks.map((item, i) => {
                 const Icon = item.icon
                 return (
                         <Link 
                             key={i}
                             href={item.href}
-                            className={cn("flex items-center space-x-3 py-1 text-sm ", {
+                            className={cn("flex items-center space-x-2 ml-2 pr-2 py-1 text-sm ", {
                             " text-emerald-500":
                                 item.href === pathname,
                             })}
                         >
                             <Icon classname="w-4 h-4" />
-                            <span>{item.title}</span>
+                            <span classname="ml-2">{item.title}</span>
                         </Link>
                     );
                 })}
