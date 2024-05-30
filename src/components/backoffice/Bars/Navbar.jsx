@@ -33,24 +33,18 @@ const Navbar = ({ user, setIsActive }) => {
 
   return (
     <div
-      className={cn(
-        "flex items-center justify-between bg-slate-100 dark:bg-slate-800 text-slate-50 h-20 py-8 px-4 fixed top-0 w-full",
-        {
-          "pr-[17rem]": isActiveState === false,
-        }
-      )}
-    >
+      className="flex items-center justify-between bg-white dark:bg-slate-800 text-emerald-700 h-20 py-8 fixed top-0 w-full px-8 z-50"  >
       <button onClick={sidebarController}>
-        <AlignJustify className="text-green-600" data-testid="AlignJustify" />
+        <AlignJustify className="text-green-600" />
       </button>
 
       <div className="flex space-x-2 text-green-600">
         <ThemeSwitcher />
 
         <div className="relative inline-flex items-center pr-2 text-sm font-medium text-center text-white bg-transparent rounded-lg">
-          <DropdownMenu className="relative inline-flex items-center p-2 text-sm font-medium text-center text-white bg-transparent rounded-lg">
+          <DropdownMenu className="relative inline-flex items-center pr-2 text-sm font-medium text-center text-white bg-transparent rounded-lg">
             <DropdownMenuTrigger>
-              <Bell className="text-green-600" data-testid="Bell" />
+              <Bell className="text-green-600" />
               <span className="sr-only">Notifications</span>
               {user.userNotification > 0 ? (
                 <div
@@ -75,7 +69,7 @@ const Navbar = ({ user, setIsActive }) => {
                 className="w-8 h-8 rounded-full"
               />
             ) : (
-              <User data-testid="UserIcon" className="text-green-600" />
+              <User className="text-green-600" />
             )}
           </DropdownMenuTrigger>
           <DropdownMenuContent className="px-4 py-2 pr-8">

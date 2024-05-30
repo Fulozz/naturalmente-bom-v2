@@ -1,25 +1,29 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import logo_light_mode from "@/public/logo_light_mode.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/src/lib/cn";
-import { sidebarLinks, catalogueLinks } from "./config/mapLinks.config";
-import { LayoutGrid, LogOut, Folder, FolderOpen, ChevronRight, Minus } from "lucide-react";
+import { sidebarLinks } from "./config/mapLinks.config";
+import { LayoutGrid, LogOut} from "lucide-react";
 
 import SidebarCollapse from "./sidebarCollapse/SidebarCollapse.sidebar";
-const Sidebar = () => {
+const Sidebar = ({isActive}) => {
+ 
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  
+
+  //bg-slate-50 dark:bg-slate-700 space-y-6 w-64 h-screen text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-0 z-50
   return (
-    <div className="bg-slate-50 dark:bg-slate-700 space-y-6 w-64 h-screen text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-0 z-50 ">
+    <div className={cn("bg-slate-50 dark:bg-slate-700 space-y-6 w-64 h-screen text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-0 z-50", {
+     "hidden" : isActive === false
+    })}>
       <Link className="" href="#">
         <Image
           src={logo_light_mode}
           alt="Naturalmente bom Logo"
-          className="w-36  px-6 py-4"
+          className="w-36 px-6 py-4"
         />
       </Link>
 

@@ -6,8 +6,7 @@ import {
     CollapsibleTrigger,
   } from "@/src/components/ui/collapsible";
 
-import { Folder, FolderOpen, Minus } from "lucide-react";
-import { useState } from "react";
+import { Folder, FolderOpen } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/src/lib/cn";

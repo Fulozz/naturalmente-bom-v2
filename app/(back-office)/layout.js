@@ -18,13 +18,11 @@ const layout = ({ children }) => {
   };
   return (
     <div className="flex">
-      {isActive ? <Sidebar /> : null}
+      <Sidebar isActive={isActive} /> 
       <div
-        className={cn("bg-slate-100 min-h-screen w-full", {
-          "ml-64": isActive === true,
-        })}
-      >
+        className="bg-slate-100 min-h-screen flex-grow w-full ml-0" >
         {/*TODO: Header*/}
+        
         <Navbar user={user} setIsActive={setIsActive} />
         <main className="p-8 bg-slate-100 dark:bg-slate-900 text-slate-50 mt-16">
           {children}
