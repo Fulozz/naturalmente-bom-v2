@@ -21,6 +21,7 @@ const Sidebar = ({isActive}) => {
     <div className={cn("hidden bg-slate-50 dark:bg-slate-700 space-y-6 md:w-64 lg:w-64 sm:w-1/2 h-screen text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-20 z-10", {
      "block" : isActive === false
     })}>
+      
       <Link className="" href="#">
         <Image
           src={logo_light_mode}
@@ -68,6 +69,9 @@ const Sidebar = ({isActive}) => {
           </button>
         </div>
       </div>
+      <div className={cn("z-4 h-full w-1/2", {
+      "bg-black opacity-50" : isActive === true
+    })}></div>
     </div>
     </>
   );
