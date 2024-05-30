@@ -17,7 +17,11 @@ const layout = ({ children }) => {
     userNotification: 10,
   };
   return (
-    <div className="flex">
+    <>
+    <div className={cn("flex z-4 h-full w-1/2", {
+      "bg-black opacity-50" : isActive === false
+    })}></div>
+      <div className="flex">
       <Sidebar isActive={isActive} /> 
       <div
         className="bg-slate-100 min-h-screen flex-grow w-full ml-0" >
@@ -31,6 +35,7 @@ const layout = ({ children }) => {
       </div>
       {/*TODO: Main Body*/}
     </div>
+    </>
   );
 };
 

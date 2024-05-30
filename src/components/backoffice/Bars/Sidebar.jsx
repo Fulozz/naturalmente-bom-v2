@@ -16,8 +16,10 @@ const Sidebar = ({isActive}) => {
 
   //bg-slate-50 dark:bg-slate-700 space-y-6 w-64 h-screen text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-0 z-50
   return (
-    <div className={cn("bg-slate-50 dark:bg-slate-700 space-y-6 w-64 h-screen text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-0 z-50", {
-     "hidden" : isActive === false
+    <>
+    
+    <div className={cn("hidden bg-slate-50 dark:bg-slate-700 space-y-6 md:w-64 lg:w-64 sm:w-1/2 h-screen text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-20 z-10", {
+     "block" : isActive === false
     })}>
       <Link className="" href="#">
         <Image
@@ -67,6 +69,7 @@ const Sidebar = ({isActive}) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
