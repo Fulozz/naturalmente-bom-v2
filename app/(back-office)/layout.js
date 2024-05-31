@@ -5,7 +5,7 @@ import Sidebar from "@/src/components/backoffice/Bars/Sidebar";
 import profileImage from "./mock/image/profileImage.png";
 import { cn } from "@/src/lib/cn";
 const layout = ({ children }) => {
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
 
   // Query of the database userInfo
   const user = {
@@ -18,17 +18,21 @@ const layout = ({ children }) => {
   };
   return (
     <>
-    <div className={cn("flex z-4 h-full w-1/2", {
-      "bg-black opacity-50" : isActive === false
-    })}></div>
+    
       <div className="flex">
       <Sidebar isActive={isActive} /> 
+        {isActive === true && (
+                <div
+                  className="fixed inset-0 z-30 bg-black/50" // Adjust opacity as needed
+                  onClick={()=> setIsActive(!isActive)} // Close sidebar and overlay on click
+                />
+              )}
       <div
         className="bg-slate-100 min-h-screen flex-grow w-full ml-0" >
         {/*TODO: Header*/}
         
         <Navbar user={user} setIsActive={setIsActive} />
-        <main className="p-8 bg-slate-100 dark:bg-slate-900 text-slate-50 mt-16">
+        <main className="ml-24 p-8 bg-slate-100 dark:bg-slate-900 text-slate-50 mt-16">
           {children}
         </main>
         {/*TODO: Main*/}
