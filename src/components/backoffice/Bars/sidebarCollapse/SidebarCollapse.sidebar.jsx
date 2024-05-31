@@ -23,7 +23,7 @@ const SidebarCollapse = ({setIsOpen, isActive}) => {
     <Collapsible className="">
             <CollapsibleTrigger 
               onClick={folderController}
-              className={cn("flex items-center space-x-3 px-2 px-2  py-2 ", {
+              className={cn("flex items-center space-x-3 px-2  py-2 ", {
                   "px-6" : isActive === true
               })}>
                   <div className="flex items-center space-x-3 ">
