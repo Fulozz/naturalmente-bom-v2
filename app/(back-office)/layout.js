@@ -6,6 +6,7 @@ import profileImage from "./mock/image/profileImage.png";
 import { cn } from "@/src/lib/cn";
 const layout = ({ children }) => {
   const [isActive, setIsActive] = useState(false);
+  
 
   // Query of the database userInfo
   const user = {
@@ -20,7 +21,7 @@ const layout = ({ children }) => {
     <>
     
       <div className="flex">
-      <Sidebar isActive={isActive} /> 
+      <Sidebar isActive={isActive} setIsActive={setIsActive}   /> 
         {isActive === true && (
                 <div
                   className="fixed inset-0 z-30 bg-black/50" // Adjust opacity as needed

@@ -11,19 +11,23 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/src/lib/cn";
 import { catalogueLinks } from "../config/mapLinks.config";
-const SidebarCollapse = ({setIsOpen, isActive}) => {
+const SidebarCollapse = ({setIsOpen, isActive, setIsActive}) => {
     const isOpen = setIsOpen;
     const pathname = usePathname();
-    const folderController = () => {
-        setIsOpen(!isOpen)
-      }
-   
+    
+      const handleFolderClick = () => {
+        // Toggle isActive state only if sidebar is currently closed (isActive === false)
+        if (!isActive) {
+          setIsActive(false);
+        }
+        setIsOpen(!isOpen); // Always toggle isOpen state
+      };
     
   return (
     <Collapsible className="">
             <CollapsibleTrigger 
-              onClick={folderController}
-              className={cn("flex items-center space-x-3 px-2  py-2 ", {
+              onClick={handleFolderClick}
+              className={cn("flex items-center space-x-3 px-3  py-2 ", {
                   "px-6" : isActive === true
               })}>
                   <div className="flex items-center space-x-3 ">

@@ -9,7 +9,7 @@ import { sidebarLinks } from "./config/mapLinks.config";
 import { LayoutGrid, LogOut} from "lucide-react";
 
 import SidebarCollapse from "./sidebarCollapse/SidebarCollapse.sidebar";
-const Sidebar = ({ isActive }) => {
+const Sidebar = ({ isActive, setIsActive }) => {
 
 
   const pathname = usePathname();
@@ -25,18 +25,18 @@ const Sidebar = ({ isActive }) => {
 
     })}>
       
-      <Link className="hidden" href="#">
+      <Link className="justify-center" href="#">
         <Image
           src={logo_light_mode}
           alt="Naturalmente bom Logo"
-          className="w-36 px-6 py-4"
+          className="w-20 py-4"
         />
       </Link>
 
       <div className="space-y-3 flex flex-col mt-14">
         <Link
           href="/dashboard"
-          className={cn("flex items-center space-x-3 px-2  py-2 ", {
+          className={cn("flex items-center space-x-3 px-3  py-2 ", {
             "border-emerald-600 text-emerald-500 border-l-4 px-6 ":
               isActive === true &&
               pathname === "/dashboard",
@@ -60,7 +60,7 @@ const Sidebar = ({ isActive }) => {
             <Link
               key={i}
               href={item.href}
-              className={cn("flex items-center space-x-3 px-2 py-2 ", {
+              className={cn("flex items-center space-x-3 px-3 py-2 ", {
                 "border-emerald-600 text-emerald-500 border-l-4 px-6 ":
                   isActive === true &&
                   item.href === pathname,
