@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  webpack5: true,
   images: {
-    domains: ['localhost', 'res.cloudinary.com'],
+    domains: ['localhost', 'com.naturalmentebom.app'],
   },
   async headers() {
     return [
