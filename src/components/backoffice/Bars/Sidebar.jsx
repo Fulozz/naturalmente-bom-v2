@@ -6,21 +6,18 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/src/lib/cn";
 import { sidebarLinks } from "./config/mapLinks.config";
-import { LayoutGrid, LogOut} from "lucide-react";
+import { LayoutGrid, } from "lucide-react";
 
 import SidebarCollapse from "./sidebarCollapse/SidebarCollapse.sidebar";
-const Sidebar = ({ isActive, setIsActive }) => {
-
+const Sidebar = ({ isActive, toggleActive, toggleOpen, isOpen }) => {
 
   const pathname = usePathname();
-
-  const [isOpen, setIsOpen] = useState(false);
 
   
   
   return (
     <>
-    <div className={cn("block w-24 bg-slate-50 dark:bg-slate-700 space-y-6  h-screen text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-20 z-40", {
+    <div className={cn("block w-24 bg-slate-50 dark:bg-slate-700 space-y-6  h-full text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-20 z-40", {
      "block w-64" : isActive === true
 
     })}>
@@ -46,11 +43,11 @@ const Sidebar = ({ isActive, setIsActive }) => {
         >
           <LayoutGrid />
           {
-            isActive ? <span>Dashboard</span> : null
+            isActive && <span>Dashboard</span> 
           }
         </Link>
 
-          <SidebarCollapse setIsOpen={setIsOpen} isActive={isActive} />
+          <SidebarCollapse toggleOpen={toggleOpen} isActive={isActive} toggleActive={toggleActive}  isOpen={isOpen}/>
           
 
    
@@ -69,7 +66,7 @@ const Sidebar = ({ isActive, setIsActive }) => {
               })}
             >
               <Icon />
-              { isActive ? <span>{item.title}</span> : null }
+              { isActive && <span>{item.title}</span> }
             </Link>
           );
         })}

@@ -20,15 +20,16 @@ import {
 } from "@/src/components/ui/dropdown-menu";
 import notifications from "./mock/notificationsMockup.json";
 import Notifications from "./notifications/Notifications.navbar.jsx";
-import { cn } from "@/src/lib/cn";
-import ThemeSwitcher from "./ThemeSwitcher";
 
-const Navbar = ({ user, setIsActive }) => {
-  const [isActiveState, setIsActiveState] = useState(false); // Initial state
+import ThemeSwitcher from "./ThemeSwitcher";
+import useOpenActiveState from "@/src/hooks/useOpenActiveState";
+
+const Navbar = ({ user, toggleActive }) => {
+  const {isActiveState, toggleActiveState} = useOpenActiveState(false); // Initial state
 
   const sidebarController = () => {
-    setIsActiveState(!isActiveState); // Toggle state
-    setIsActive(isActiveState); // Update parent state if provided
+    toggleActiveState(!isActiveState); // Toggle state
+    toggleActive(isActiveState); // Update parent state if provided
   };
 
   return (
