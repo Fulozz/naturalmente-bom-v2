@@ -11,17 +11,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/src/lib/cn";
 import { catalogueLinks } from "../config/mapLinks.config";
-const SidebarCollapse = ({toggleOpen, isActive,  toggleActive, isOpen }) => {
+const SidebarCollapse = ({setIsOpen, isActive,  toggleActive, isOpen }) => {
   
     const pathname = usePathname();
     
       const handleFolderClick = () => {
         if(!isActive){
           toggleActive(true)
-          toggleOpen(false)
+          setIsOpen(false)
         }
         // Toggle isActive state only if sidebar is currently closed (isActive === false)
-        toggleOpen(true); // Always toggle isOpen state
+        setIsOpen(true); // Always toggle isOpen state
       };
     
   return (

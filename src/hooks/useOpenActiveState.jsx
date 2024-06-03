@@ -9,7 +9,7 @@ function useOpenActiveState() {
 
   // Optionally, define additional helper functions for more complex state handling logic
 
-  return { isOpen, isActive, toggleOpen, toggleActive };
+  return { isOpen, isActive, toggleOpen, toggleActive, setIsOpen };
 }
 
 export default useOpenActiveState;

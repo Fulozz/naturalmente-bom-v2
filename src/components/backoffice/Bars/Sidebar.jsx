@@ -13,20 +13,20 @@ import SidebarCollapse from "./sidebarCollapse/SidebarCollapse.sidebar";
 const Sidebar = () => {
 
   const pathname = usePathname();
-  const { toggleActive, isActive, toggleOpen, isOpen } = useOpenActiveState(); // Initial state
+  const { toggleActive, isActive, toggleOpen, isOpen, setIsOpen } = useOpenActiveState(); // Initial state
   const [isActiveState, setIsActiveState] = useState(false)
 
   const sidebarController = () => {
-    toggleActive(!isActiveState); // Toggle state
-    toggleActive(isActiveState); // Update parent state if provided
+    toggleActive(!isActive); // Toggle state
+    toggleActive(isActive); // Update parent state if provided
   };
   const handleOverlay = () => {
     if (isOpen) {
-      toggleActive(!isActive);
-      toggleOpen(false);
-    } else {
-      toggleActive(false);
-    }
+      toggleActive();
+      setIsOpen(false);
+    } 
+    setIsOpen(false);
+    toggleActive(false)
   };
   
   
@@ -45,7 +45,7 @@ const Sidebar = () => {
 
     })}>
       
-      <button className="px-3 py-2 border-white "onClick={sidebarController}>
+      <button className="px-3 py-2 border-white" onClick={sidebarController}>
         <AlignJustify className="text-green-600" />
       </button>
 
@@ -66,7 +66,7 @@ const Sidebar = () => {
           }
         </Link>
 
-          <SidebarCollapse toggleOpen={toggleOpen} isActive={isActive} toggleActive={toggleActive}  isOpen={isOpen}/>
+          <SidebarCollapse setIsOpen={setIsOpen} isActive={isActive} toggleActive={toggleActive}  isOpen={isOpen}/>
           
 
    

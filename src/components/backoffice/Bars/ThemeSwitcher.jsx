@@ -15,7 +15,7 @@ const ThemeSwitcher = () => {
     <div>
       <button
         className={cn(
-          "w-fit p-2 rounded-md hover:scale-110 active:scale-100 duration-200 bg-slate-100 dark:bg-slate-800",
+          "w-fit p-2 rounded-md hover:scale-110 active:scale-100 duration-200 bg-transparent",
           {
             "text-slate-800 dark:text-slate-50": theme === "light",
             "text-slate-50 dark:text-slate-800": theme === "dark",

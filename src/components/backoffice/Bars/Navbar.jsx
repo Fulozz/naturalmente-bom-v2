@@ -39,7 +39,7 @@ const Navbar = ({ user, toggleActive }) => {
           <Image
             src={logo_light_mode}
             alt="Naturalmente bom Logo"
-            className="w-20 py-4"
+            className="w-16 py-4"
           />
       </Link>
 
