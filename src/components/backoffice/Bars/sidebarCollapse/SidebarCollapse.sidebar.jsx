@@ -39,7 +39,7 @@ const SidebarCollapse = ({toggleOpen, isActive,  toggleActive, isOpen }) => {
                   </div>
             </CollapsibleTrigger>
             {
-              isOpen && (
+              isOpen ? (
                 
                   <CollapsibleContent  className="rounded-lg space-x-2 px-3 py-2 pl-6 dark:bg-slate-800" >
                     {catalogueLinks.map((item, i) => {
@@ -60,7 +60,7 @@ const SidebarCollapse = ({toggleOpen, isActive,  toggleActive, isOpen }) => {
                         })}
                     </CollapsibleContent>
                 
-              )
+              ) : null
             }
           </Collapsible>
   )

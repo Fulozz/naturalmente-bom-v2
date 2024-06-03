@@ -10,8 +10,12 @@ function Layout({ children }) { // Rename layout to Layout with uppercase first 
   const { isOpen, isActive, toggleOpen, toggleActive } = useOpenActiveState();
 
   const handleOverlay = () => {
-    toggleActive(!isActive);
-    toggleOpen(false);
+    if(isOpen){
+      toggleActive(!isActive);
+      toggleOpen(false);
+    } else {
+      toggleActive(false)
+    }
   };
 
   // Query of the database userInfo

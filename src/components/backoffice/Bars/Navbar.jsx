@@ -25,10 +25,10 @@ import ThemeSwitcher from "./ThemeSwitcher";
 import useOpenActiveState from "@/src/hooks/useOpenActiveState";
 
 const Navbar = ({ user, toggleActive }) => {
-  const {isActiveState, toggleActiveState} = useOpenActiveState(false); // Initial state
+  const { isActiveState } = useOpenActiveState(false); // Initial state
 
   const sidebarController = () => {
-    toggleActiveState(!isActiveState); // Toggle state
+    toggleActive(!isActiveState); // Toggle state
     toggleActive(isActiveState); // Update parent state if provided
   };
 
