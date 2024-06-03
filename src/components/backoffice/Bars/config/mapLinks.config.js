@@ -11,7 +11,8 @@ import {
   SendToBack,
   ScanSearch,
   MonitorPlay,
-
+  CircleDollarSign,
+  Building2
 } from "lucide-react";
 
 export const catalogueLinks = [
@@ -67,6 +68,16 @@ export const sidebarLinks = [
     title: "Staff",
     icon: ContactRound,
     href: "/dashboard/staff",
+  },
+  {
+    title: "Community",
+    icon: Building2,
+    href: "/dashboard/community",
+  },
+  {
+    title: "Wallet",
+    icon: CircleDollarSign ,
+    href: "/dashboard/wallet",
   },
   {
     title: "Configurações",

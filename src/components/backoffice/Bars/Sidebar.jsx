@@ -22,10 +22,9 @@ const Sidebar = () => {
   };
   const handleOverlay = () => {
     if (isOpen) {
-      toggleActive();
+      toggleActive(false);
       setIsOpen(false);
     } 
-    setIsOpen(false);
     toggleActive(false)
   };
   
@@ -41,7 +40,7 @@ const Sidebar = () => {
 
           
     <div className={cn("block w-24 bg-slate-50 dark:bg-slate-700 space-y-6  h-full text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-0 z-50", {
-     "block w-64" : isActive === true
+     "block w-64 overflow-y-scroll" : isActive === true
 
     })}>
       

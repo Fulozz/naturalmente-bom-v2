@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, {useState} from 'react'
 import {
     Collapsible,
     CollapsibleContent,
@@ -12,17 +12,27 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/src/lib/cn";
 import { catalogueLinks } from "../config/mapLinks.config";
 const SidebarCollapse = ({setIsOpen, isActive,  toggleActive, isOpen }) => {
-  
+  const [isOpenState, setIsOpenState] = useState(false);
+
     const pathname = usePathname();
     
-      const handleFolderClick = () => {
-        if(!isActive){
-          toggleActive(true)
-          setIsOpen(false)
-        }
-        // Toggle isActive state only if sidebar is currently closed (isActive === false)
-        setIsOpen(true); // Always toggle isOpen state
-      };
+    const handleFolderClick2 = () => {
+      setIsOpen((prevIsOpen) => !prevIsOpen); // Use callback to access previous state
+
+    // Optionally, update isActive only when isOpen is true:
+    if (isOpenState) {
+      toggleActive(true);
+    }
+  };
+
+  const handleFolderClick = () => {
+    if(!isActive){
+      toggleActive(true)
+      setIsOpen(true)
+    }
+    setIsOpen(!isOpen)
+  };
+
     
   return (
     <Collapsible className="">
@@ -32,9 +42,7 @@ const SidebarCollapse = ({setIsOpen, isActive,  toggleActive, isOpen }) => {
                   "px-6" : isActive === true
               })}>
                   <div className="flex items-center space-x-3 ">
-                    {
-                      isOpen === true ? <FolderOpen /> : <Folder />
-                    }
+                    {isOpen === true ? <FolderOpen /> : <Folder />}
                     {isActive && <span>Catalogo</span> }
                   </div>
             </CollapsibleTrigger>
