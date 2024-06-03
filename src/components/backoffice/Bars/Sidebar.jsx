@@ -6,29 +6,48 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/src/lib/cn";
 import { sidebarLinks } from "./config/mapLinks.config";
-import { LayoutGrid, } from "lucide-react";
+import { LayoutGrid, AlignJustify } from "lucide-react";
+import useOpenActiveState from "@/src/hooks/useOpenActiveState";
 
 import SidebarCollapse from "./sidebarCollapse/SidebarCollapse.sidebar";
-const Sidebar = ({ isActive, toggleActive, toggleOpen, isOpen }) => {
+const Sidebar = () => {
 
   const pathname = usePathname();
+  const { toggleActive, isActive, toggleOpen, isOpen } = useOpenActiveState(); // Initial state
+  const [isActiveState, setIsActiveState] = useState(false)
 
+  const sidebarController = () => {
+    toggleActive(!isActiveState); // Toggle state
+    toggleActive(isActiveState); // Update parent state if provided
+  };
+  const handleOverlay = () => {
+    if (isOpen) {
+      toggleActive(!isActive);
+      toggleOpen(false);
+    } else {
+      toggleActive(false);
+    }
+  };
   
   
   return (
     <>
-    <div className={cn("block w-24 bg-slate-50 dark:bg-slate-700 space-y-6  h-full text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-20 z-40", {
+    {isActive === true && (
+          <div
+            className="fixed inset-0 z-40 bg-black/50" // Adjust opacity as needed
+            onClick={handleOverlay} // Close sidebar and overlay on click
+          />
+        )}
+
+          
+    <div className={cn("block w-24 bg-slate-50 dark:bg-slate-700 space-y-6  h-full text-emerald-700 dark:text-slate-50 shadow-md px-6 py-4 fixed left-0 top-0 z-50", {
      "block w-64" : isActive === true
 
     })}>
       
-      <Link className="justify-center" href="#">
-        <Image
-          src={logo_light_mode}
-          alt="Naturalmente bom Logo"
-          className="w-20 py-4"
-        />
-      </Link>
+      <button className="px-3 py-2 border-white "onClick={sidebarController}>
+        <AlignJustify className="text-green-600" />
+      </button>
 
       <div className="space-y-3 flex flex-col mt-14">
         <Link

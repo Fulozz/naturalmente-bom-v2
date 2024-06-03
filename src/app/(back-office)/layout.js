@@ -6,18 +6,7 @@ import Sidebar from "@/src/components/backoffice/Bars/Sidebar";
 import profileImage from "./mock/image/profileImage.png";
 import useOpenActiveState from "@/src/hooks/useOpenActiveState";
 
-function Layout({ children }) { // Rename layout to Layout with uppercase first letter
-  const { isOpen, isActive, toggleOpen, toggleActive } = useOpenActiveState();
-
-  const handleOverlay = () => {
-    if(isOpen){
-      toggleActive(!isActive);
-      toggleOpen(false);
-    } else {
-      toggleActive(false)
-    }
-  };
-
+function Layout({ children }) {
   // Query of the database userInfo
   const user = {
     userId: 123,
@@ -31,16 +20,10 @@ function Layout({ children }) { // Rename layout to Layout with uppercase first 
   return (
     <>
       <div className="flex">
-        {isActive === true && (
-          <div
-            className="fixed inset-0 z-30 bg-black/50" // Adjust opacity as needed
-            onClick={handleOverlay} // Close sidebar and overlay on click
-          />
-        )}
-        <Sidebar toggleActive={toggleActive} isActive={isActive} toggleOpen={toggleOpen} isOpen={isOpen} />
-        <div className="bg-slate-100 min-h-screen flex-grow w-full ml-0">
+       <Sidebar />
+        <div className="bg-slate-100 min-h-screen flex-grow w-full sm:ml24 ml-0">
           {/*TODO: Header*/}
-          <Navbar user={user} toggleActive={toggleActive} />
+          <Navbar user={user}  />
           <main className="ml-24 p-8 bg-slate-100 dark:bg-slate-900 text-slate-50 mt-16">
             {children}
           </main>

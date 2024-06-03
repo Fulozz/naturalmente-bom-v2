@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import {
   User,
   AlignJustify,
@@ -8,7 +8,7 @@ import {
   Settings,
   LogOut,
 } from "lucide-react";
-
+import Link from "next/link";
 import Image from "next/image";
 import {
   DropdownMenu,
@@ -23,7 +23,7 @@ import Notifications from "./notifications/Notifications.navbar.jsx";
 
 import ThemeSwitcher from "./ThemeSwitcher";
 import useOpenActiveState from "@/src/hooks/useOpenActiveState";
-
+import logo_light_mode from "@/public/logo_light_mode.png";
 const Navbar = ({ user, toggleActive }) => {
   const { isActiveState } = useOpenActiveState(false); // Initial state
 
@@ -34,10 +34,14 @@ const Navbar = ({ user, toggleActive }) => {
 
   return (
     <div
-      className="flex items-center justify-between bg-white dark:bg-slate-800 text-emerald-700 h-20 py-8 fixed top-0 w-full px-8 z-50"  >
-      <button onClick={sidebarController}>
-        <AlignJustify className="text-green-600" />
-      </button>
+      className="flex items-center justify-between bg-white dark:bg-slate-800 text-emerald-700 h-20 py-8 fixed top-0 w-full px-8 z-40 pl-[6.5rem] pr-28"  >
+        <Link className="" href="#">
+          <Image
+            src={logo_light_mode}
+            alt="Naturalmente bom Logo"
+            className="w-20 py-4"
+          />
+      </Link>
 
       <div className="flex space-x-2 text-green-600">
         <ThemeSwitcher />

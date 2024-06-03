@@ -102,37 +102,37 @@ const WeeklySales = () => {
 
   return (
     <div className="bg-slate-50 dark:bg-slate-700 text-emerald-700 dark:text-slate-50 p-8 rounded-lg shadow-xl">
-    <h2 className="text-xl font-bold">Vendas da semana</h2>
-    <div className="p-4 h-auto">
-      <div className="text-sm font-medium text-center border-b text-gray-400  border-gray-200 dark:text-gray-400 dark:border-gray-700">
-        <ul className="flex flex-wrap -mb-px">
-          {tabs.map((tab, i) => {
-            return (
-              <li className="me-2" key={i}>
-                <button
-                  onClick={() => setChartToDisplay(tab.type)}
-                  className={
-                    chartToDisplay == tab.type
-                      ? "inline-block p-4 text-orange-600 border-b-2 border-orange-600 rounded-t-lg active dark:text-orange-500 dark:border-orange-500"
-                      : "inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                  }
-                >
-                  {tab.title}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
+      <h2 className="text-xl font-bold">Vendas da semana</h2>
+      <div className="p-4 h-auto">
+        <div className="text-sm font-medium text-center border-b text-gray-400  border-gray-200 dark:text-gray-400 dark:border-gray-700">
+          <ul className="flex flex-wrap -mb-px">
+            {tabs.map((tab, i) => {
+              return (
+                <li className="me-2" key={i}>
+                  <button
+                    onClick={() => setChartToDisplay(tab.type)}
+                    className={
+                      chartToDisplay == tab.type
+                        ? "inline-block p-4 text-orange-600 border-b-2 border-orange-600 rounded-t-lg active dark:text-orange-500 dark:border-orange-500"
+                        : "inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                    }
+                  >
+                    {tab.title}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        {/* Chart to display */}
+        {tabs.map((tab, i) => {
+          if (chartToDisplay === tab.type) {
+            return <Line options={options} data={tab.data} key={i} />;
+          }
+          return null;
+        })}
       </div>
-      {/* Chart to display */}
-      {tabs.map((tab, i) => {
-        if (chartToDisplay === tab.type) {
-          return <Line options={options} data={tab.data} key={i} />;
-        }
-        return null;
-      })}
     </div>
-  </div>
   );
 };
 
