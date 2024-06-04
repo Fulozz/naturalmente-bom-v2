@@ -34,7 +34,7 @@ const Navbar = ({ user, toggleActive }) => {
 
   return (
     <div
-      className="flex items-center justify-between bg-white dark:bg-slate-800 text-emerald-700 h-20 py-8 fixed top-0 w-full px-8 z-40 pl-[6.5rem] pr-28"  >
+      className="flex items-center justify-between bg-white dark:bg-slate-800 text-emerald-700 h-20 py-8 fixed top-0 w-full px-8 z-40 pl-[6.5rem] "  >
         <Link className="" href="#">
           <Image
             src={logo_light_mode}

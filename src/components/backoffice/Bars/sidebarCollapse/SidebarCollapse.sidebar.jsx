@@ -1,36 +1,28 @@
 "use client"
-import React, {useState} from 'react'
+import React from 'react'
 import {
     Collapsible,
     CollapsibleContent,
     CollapsibleTrigger,
   } from "@/src/components/ui/collapsible";
-
 import { Folder, FolderOpen } from "lucide-react";
 import Link from "next/link";
+
 import { usePathname } from "next/navigation";
+
 import { cn } from "@/src/lib/cn";
+
 import { catalogueLinks } from "../config/mapLinks.config";
-const SidebarCollapse = ({setIsOpen, isActive,  toggleActive, isOpen }) => {
-  const [isOpenState, setIsOpenState] = useState(false);
 
-    const pathname = usePathname();
-    
-    const handleFolderClick2 = () => {
-      setIsOpen((prevIsOpen) => !prevIsOpen); // Use callback to access previous state
-
-    // Optionally, update isActive only when isOpen is true:
-    if (isOpenState) {
-      toggleActive(true);
-    }
-  };
+const SidebarCollapse = ({toggleOpen, isActive,  toggleActive, isOpen }) => {
+  const pathname = usePathname()
 
   const handleFolderClick = () => {
-    if(!isActive){
-      toggleActive(true)
-      setIsOpen(true)
+    if (!isActive) {
+      toggleActive(true);
     }
-    setIsOpen(!isOpen)
+    toggleOpen(); // Use the provided function to toggle state
+    console.log(isOpen)
   };
 
     
@@ -47,7 +39,7 @@ const SidebarCollapse = ({setIsOpen, isActive,  toggleActive, isOpen }) => {
                   </div>
             </CollapsibleTrigger>
             {
-              isOpen ? (
+              isOpen === false ? null : (
                 
                   <CollapsibleContent  className="rounded-lg space-x-2 px-3 py-2 pl-6 dark:bg-slate-800" >
                     {catalogueLinks.map((item, i) => {
@@ -68,7 +60,7 @@ const SidebarCollapse = ({setIsOpen, isActive,  toggleActive, isOpen }) => {
                         })}
                     </CollapsibleContent>
                 
-              ) : null
+                      )
             }
           </Collapsible>
   )

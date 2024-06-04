@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function useOpenActiveState() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [isActive, setIsActive] = useState(false);
+
+
 
   const toggleOpen = () => setIsOpen(!isOpen);
   const toggleActive = () => setIsActive(!isActive);
-
-  // Optionally, define additional helper functions for more complex state handling logic
-
-  return { isOpen, isActive, toggleOpen, toggleActive, setIsOpen };
+  console.log(isOpen)
+  return { isOpen, isActive, toggleOpen, toggleActive };
 }
 
 export default useOpenActiveState;

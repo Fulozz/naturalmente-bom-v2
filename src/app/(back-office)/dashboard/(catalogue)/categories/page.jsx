@@ -2,7 +2,11 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>categories</div>
+    <div>
+      {/* Header */}
+      <h1>Categories</h1>
+      {/* Table */}
+    </div>
   )
 }
 
