@@ -14,16 +14,19 @@ import { cn } from "@/src/lib/cn";
 
 import { catalogueLinks } from "../config/mapLinks.config";
 
-const SidebarCollapse = ({toggleOpen, isActive,  toggleActive, isOpen }) => {
+const SidebarCollapse = ({setIsOpen, isActive,  setIsActive, isOpen }) => {
   const pathname = usePathname()
 
   const handleFolderClick = () => {
-    if (!isActive) {
-      toggleActive(true);
+    if(!isActive || !isOpen){
+      setIsActive(true)
+      setIsOpen(true)
     }
-    toggleOpen(); // Use the provided function to toggle state
-    console.log(isOpen)
+    if (isOpen) {
+      setIsOpen(false);
+    }
   };
+  
 
     
   return (
@@ -39,7 +42,7 @@ const SidebarCollapse = ({toggleOpen, isActive,  toggleActive, isOpen }) => {
                   </div>
             </CollapsibleTrigger>
             {
-              isOpen === false ? null : (
+              isOpen  && (
                 
                   <CollapsibleContent  className="rounded-lg space-x-2 px-3 py-2 pl-6 dark:bg-slate-800" >
                     {catalogueLinks.map((item, i) => {

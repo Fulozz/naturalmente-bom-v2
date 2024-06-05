@@ -14,23 +14,22 @@ import SidebarCollapse from "./sidebarCollapse/SidebarCollapse.sidebar";
 
 const Sidebar = () => {
   const pathname = usePathname();
-  const { toggleActive, isActive, toggleOpen, isOpen } = useOpenActiveState(); // Get state from hook
+  const { setIsActive, isActive, setIsOpen, isOpen } = useOpenActiveState(); // Get state from hook
+
 
   const sidebarController = () => {
-    toggleActive(); // Toggle state
-    if(isOpen === true){
-      toggleOpen(false)
+    if(isOpen || isActive){
+      setIsActive(false);
+      setIsOpen(false)
     }
+    setIsActive(!isActive);
   };
-  
+
   const handleOverlay = () => {
-    if (isOpen) {
-      toggleActive(false); // Close active state (optional)
-      toggleOpen(false); 
-      console.log(isOpen)
-    }
-    toggleActive(false)
+    setIsActive(false);
+    setIsOpen(false)
   };
+
 
   return (
     <>
@@ -70,7 +69,10 @@ const Sidebar = () => {
             {isActive && <span>Dashboard</span>}
           </Link>
 
-          <SidebarCollapse toggleOpen={toggleOpen} isActive={isActive} toggleActive={toggleActive} isOpen={isOpen} />
+          <SidebarCollapse 
+        setIsOpen={
+          setIsOpen
+          } isActive={isActive} setIsActive={setIsActive} isOpen={isOpen} />
 
           {sidebarLinks.map((item, i) => {
             const Icon = item.icon;
