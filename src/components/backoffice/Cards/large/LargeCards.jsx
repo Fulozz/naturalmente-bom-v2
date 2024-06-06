@@ -30,7 +30,7 @@ const LargeCards = () => {
     },
   ];
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 py-6 text-">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 py-6 ">
       {orderStatus.map((item, index) => {
         return <LargeCard key={index} data={item} />;
       })}

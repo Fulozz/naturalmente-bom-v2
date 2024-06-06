@@ -20,11 +20,11 @@ function Layout({ children }) {
   return (
     <>
       <div className="flex">
-       <Sidebar />
+        <Sidebar />
         <div className="bg-slate-100 min-h-screen flex-grow w-full sm:ml24 ml-0">
           {/*TODO: Header*/}
-          <Navbar user={user}  />
-          <main className="ml-24 p-8 bg-slate-100 dark:bg-slate-900 text-slate-50 mt-16">
+          <Navbar user={user} />
+          <main className="ml-24 p-8 bg-slate-100 dark:bg-slate-900 text-slate-50 min-h-screen mt-16">
             {children}
           </main>
           {/*TODO: Main*/}

@@ -12,34 +12,34 @@ import {
   ScanSearch,
   MonitorPlay,
   CircleDollarSign,
-  Building2
+  Building2,
 } from "lucide-react";
 
 export const catalogueLinks = [
   {
     title: "Products",
     href: "/dashboard/products",
-    icon: Boxes 
+    icon: Boxes,
   },
   {
     title: "Categories",
     href: "/dashboard/categories",
-    icon: LayoutList
+    icon: LayoutList,
   },
   {
     title: "Attributes",
     href: "/dashboard/attributes",
-    icon: SendToBack
+    icon: SendToBack,
   },
   {
     title: "Coupons",
     href: "/dashboard/coupons",
-    icon: ScanSearch
+    icon: ScanSearch,
   },
   {
     title: "Store Sliders",
     href: "/dashboard/sliders",
-    icon: MonitorPlay
+    icon: MonitorPlay,
   },
 ];
 
@@ -76,7 +76,7 @@ export const sidebarLinks = [
   },
   {
     title: "Wallet",
-    icon: CircleDollarSign ,
+    icon: CircleDollarSign,
     href: "/dashboard/wallet",
   },
   {
