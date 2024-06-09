@@ -2,10 +2,17 @@
 
 import FormHeader from "@/src/components/backoffice/category/newCategories/FormHeader";
 import TextInput from "@/src/components/backoffice/category/newCategories/Inputs/TextInput";
-import React from "react";
+import TextareaInput from "@/src/components/backoffice/category/newCategories/Inputs/TextArea";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-const NewCategory = () => {
-  const { register, handleSubmit, formState: {errors} } = useForm()
+import SubmitButton from "@/src/components/backoffice/category/newCategories/SubmitButton";
+const NewCategory = ({initialData ={}, isUpdate = false}) => {
+  const [loading, setLoading] = useState(false);
+
+  const { register, handleSubmit, formState: {errors} } = useForm();
+  const onSubmit = async (data) => {
+    console.log(data)
+  }
   return (
     <div>
       <FormHeader title="New Category" />
@@ -19,11 +26,15 @@ const NewCategory = () => {
         - image        
         */}
       {/* FORM */}
-      <form className="w-full max-w-4xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto my-3">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-4xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-700 dark:border-gray-700 mx-auto my-3">
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <TextInput label="Category Title" register={register} name="title" errors={errors} />
-          <TextInput label="Slug" register={register} name="slug" errors={errors} />
-
+          <TextareaInput label="Description" register={register} name="description" errors={errors} />
+          <SubmitButton
+          isLoading={loading}
+          buttonTitle={isUpdate ? "Updated Category" : "New Category"}
+          loadingButtonTitle=""
+        />
         </div>
         
       </form>
