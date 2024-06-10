@@ -32,8 +32,7 @@ const NewCategory = ({initialData ={}, isUpdate = false}) => {
           <TextareaInput label="Description" register={register} name="description" errors={errors} />
           <SubmitButton
           isLoading={loading}
-          buttonTitle={isUpdate ? "Updated Category" : "New Category"}
-          loadingButtonTitle=""
+          title={isUpdate ? "Updated Category" : "New Category"}
         />
         </div>
         

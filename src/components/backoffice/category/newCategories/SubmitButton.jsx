@@ -1,7 +1,7 @@
 import { Plus } from "lucide-react";
 import React from "react";
 
- const SubmitButton = ({ isLoading, buttonTitle, loadingButtonTitle }) => {
+ const SubmitButton = ({ isLoading, title }) => {
   return (
     <div className="sm:col-span-1">
       {isLoading ? (
@@ -27,7 +27,7 @@ import React from "react";
               fill="currentColor"
             />
           </svg>
-          Saving {buttonTitle} Please wait...
+          Saving {title} Please wait...
         </button>
       ) : (
         <button
@@ -35,7 +35,7 @@ import React from "react";
           className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
         >
           <Plus className="w-5 h-5 mr-2" />
-          <span>Save {buttonTitle}</span>
+          <span>Save {title}</span>
         </button>
       )}
     </div>
