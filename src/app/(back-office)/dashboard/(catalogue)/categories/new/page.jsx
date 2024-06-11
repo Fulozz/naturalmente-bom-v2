@@ -13,7 +13,8 @@ const NewCategory = ({initialData ={}, isUpdate = false}) => {
   const { register, handleSubmit, formState: {errors} } = useForm();
   const onSubmit = async (data) => {
     const slug = generateSlug(data.title);
-    console.log(slug)
+    data.slug = slug;
+    console.log(data)
   }
   return (
     <div>
