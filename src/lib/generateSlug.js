@@ -1,4 +1,4 @@
-export function generateSlug(title) {
+function generateSlug(title) {
     const slug = title
       .toLowerCase() // Convert the title to lowercase
       .replace(/\s+/g, "-") // Replace spaces with dashes
@@ -9,3 +9,4 @@ export function generateSlug(title) {
   
     return slug;
   }
+module.exports = generateSlug;

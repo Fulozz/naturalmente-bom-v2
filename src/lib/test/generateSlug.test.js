@@ -1,5 +1,7 @@
-import { generateSlug } from "../generateSlug";
-import { describe, expect, test } from '@jest/globals';
+
+const generateSlug = require('../generateSlug');
+
+
 describe("Should auto generate an slug using the title",()=> {
     test("transform title to slug",()=>{
         const title = "Fruits and Vegetables"
