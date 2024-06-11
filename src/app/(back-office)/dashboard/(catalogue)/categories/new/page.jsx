@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import SubmitButton from "@/src/components/backoffice/category/newCategories/SubmitButton";
 import generateSlug from "@/src/lib/generateSlug";
-const NewCategory = ({initialData ={}, isUpdate = false}) => {
+const NewCategory = ({ isUpdate = false}) => {
   const [loading, setLoading] = useState(false);
 
   const { register, handleSubmit, formState: {errors} } = useForm();
