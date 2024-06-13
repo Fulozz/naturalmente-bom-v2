@@ -10,7 +10,7 @@ import generateSlug from "@/src/lib/generateSlug";
 import ImageInput from "@/src/components/backoffice/category/newCategories/Inputs/ImageInput";
 const NewCategory = ({ isUpdate = false }) => {
   const [loading, setLoading] = useState(false);
-
+  const [imageUrl, setImageUrl] = useState("")
   const {
     register,
     handleSubmit,
@@ -50,7 +50,7 @@ const NewCategory = ({ isUpdate = false }) => {
             name="description"
             errors={errors}
           />
-          <ImageInput />
+          <ImageInput label="Category Image" imageUrl={imageUrl} setImageUrl={setImageUrl} endpoint="categoryImageUploader"/>
           <SubmitButton
             isLoading={loading}
             title={isUpdate ? "Updated Category" : "New Category"}

@@ -2,20 +2,21 @@ import { UploadDropzone } from "@uploadthing/react";
 import { Pencil } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import toast from "react-hot-toast";
 
 const ImageInput = ({
   label,
   imageUrl = "",
   setImageUrl,
   className = "col-span-full",
-  endpoint = "imageUploader",
+  endpoint = "categoryImageUploader",
 }) => {
   return (
     <div className={className}>
       <div className="flex justify-between items-center mb-4">
         <label
           htmlFor="course-image"
-          className="block text-sm font-medium leading-6 text-gray-900"
+          className="block text-sm font-medium leading-6 text-gray-900  dark:text-slate-50 mb-2 "
         >
           {label}
         </label>
@@ -45,11 +46,12 @@ const ImageInput = ({
             setImageUrl(res[0].url);
             // Do something with the response
             console.log("Files: ", res);
-            console.log("Upload Completed");
+            toast.success("Image Upload Complete")
           }}
           onUploadError={(error) => {
             // Do something with the error.
             console.log(`ERROR! ${error.message}`);
+            toast.error("Image Upload Failed, try again")
           }}
         />
       )}

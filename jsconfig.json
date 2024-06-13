@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/app/api/uploadthing/route": ["./src/app/api/uploadthing/route.ts"]
     }
   }
 }
