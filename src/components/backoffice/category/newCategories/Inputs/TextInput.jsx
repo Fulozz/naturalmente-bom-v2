@@ -5,7 +5,7 @@ const TextInput = ({
   label,
   name,
   register,
-  isRequired,
+  isRequired = true,
   type = "text",
   errors,
   className = "sm:col-span-2",
@@ -31,7 +31,9 @@ const TextInput = ({
         />
         {errors[`${name}`] && (
           <p className="mt-2 text-sm text-red-600" id="email-error">
-            {errors[name].message || `${label} is required`}
+            {errors[`${name}`] && (
+          <span className="text-sm text-red-600 ">{label} is required</span>
+        )}
           </p>
         )}
       </div>  
