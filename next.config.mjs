@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost', 'com.naturalmentebom.app'],
+    domains: ['localhost', 'com.naturalmentebom.app', 'utfs.io'],
   },
   async headers() {
     return [

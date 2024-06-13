@@ -41,6 +41,7 @@ const ImageInput = ({
         />
       ) : (
         <UploadDropzone
+          className="mt-4 border-none ut-button:bg-blue-500 ut-button:px-5 ut-button:py-2.5 ut-button:me-2 ut-button:b-2 ut-button:ut-readying:bg-blue-500/50 ut-button:mb-6 ut-upload-icon:mt-6"
           endpoint={endpoint}
           onClientUploadComplete={(res) => {
             setImageUrl(res[0].url);

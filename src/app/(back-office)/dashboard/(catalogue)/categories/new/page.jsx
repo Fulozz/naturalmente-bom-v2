@@ -19,6 +19,7 @@ const NewCategory = ({ isUpdate = false }) => {
   const onSubmit = async (data) => {
     const slug = generateSlug(data.title);
     data.slug = slug;
+    data.image = imageUrl;
     console.log(data);
   };
   return (
@@ -50,7 +51,7 @@ const NewCategory = ({ isUpdate = false }) => {
             name="description"
             errors={errors}
           />
-          <ImageInput label="Category Image" imageUrl={imageUrl} setImageUrl={setImageUrl} endpoint="categoryImageUploader"/>
+          <ImageInput label="Category Image" imageUrl={imageUrl} setImageUrl={setImageUrl} endpoint="categoryImageUploader" />
           <SubmitButton
             isLoading={loading}
             title={isUpdate ? "Updated Category" : "New Category"}
