@@ -55,8 +55,8 @@ const SidebarCollapse = ({ setIsOpen, isActive, setIsActive, isOpen }) => {
                   }
                 )}
               >
-                <Icon classname="w-4 h-4" />
-                <span classname="ml-2">{item.title}</span>
+                <Icon className="w-4 h-4" />
+                <span className="ml-2">{item.title}</span>
               </Link>
             );
           })}

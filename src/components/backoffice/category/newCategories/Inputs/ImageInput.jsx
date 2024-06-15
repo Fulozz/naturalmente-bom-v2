@@ -8,7 +8,7 @@ const ImageInput = ({
   label,
   imageUrl = "",
   setImageUrl,
-  className = "col-span-full",
+  className = "col-span-full justify-center",
   endpoint = "categoryImageUploader",
 }) => {
   return (
@@ -37,7 +37,7 @@ const ImageInput = ({
           alt="Item image"
           width={1000}
           height={667}
-          className="w-full h-64 object-cover"
+          className="w-full h-64 object-contain"
         />
       ) : (
         <UploadDropzone

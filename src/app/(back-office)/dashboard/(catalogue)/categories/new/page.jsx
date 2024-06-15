@@ -19,7 +19,7 @@ const NewCategory = ({ isUpdate = false }) => {
   const onSubmit = async (data) => {
     const slug = generateSlug(data.title);
     data.slug = slug;
-    data.image = imageUrl;
+    data.imageUrl = imageUrl;
     console.log(data);
   };
   return (
