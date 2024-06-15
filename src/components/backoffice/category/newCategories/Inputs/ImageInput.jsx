@@ -41,12 +41,12 @@ const ImageInput = ({
         />
       ) : (
         <UploadDropzone
-          className="mt-4 border-none ut-button:bg-blue-500 ut-button:px-5 ut-button:py-2.5 ut-button:me-2 ut-button:b-2 ut-button:ut-readying:bg-blue-500/50 ut-button:mb-6 ut-upload-icon:mt-6"
+          className="mt-4 ut-button:bg-blue-500 ut-button:px-5 ut-button:py-2.5 ut-button:me-2 ut-button:b-2 ut-button:ut-readying:bg-blue-500/50 ut-button:mb-6 ut-upload-icon:mt-6"
           endpoint={endpoint}
           onClientUploadComplete={(res) => {
             setImageUrl(res[0].url);
             // Do something with the response
-            console.log("Files: ", res);
+            console.log("Files: ", res[0].url);
             toast.success("Image Upload Complete")
           }}
           onUploadError={(error) => {
