@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 // COMPONENTS
 import FormHeader from "@/src/components/backoffice/category/newCategories/FormHeader";
 import generateSlug from "@/src/lib/generateSlug";
@@ -12,7 +13,9 @@ import ImageInput from "@/src/components/backoffice/category/newCategories/Input
 // API request
 import { makePostRequest } from "@/src/lib/apiRequest/makePostRequest";
 import { makePutRequest } from "@/src/lib/apiRequest/makePutRequest";
+import { redirect } from "next/navigation";
 const NewCategory = ({ isUpdate = false }) => {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
   const {
@@ -27,8 +30,9 @@ const NewCategory = ({ isUpdate = false }) => {
     data.slug = slug;
     data.imageUrl = imageUrl;
 
-    makePostRequest(setLoading, "api/categories", data, "Category", reset);
+    makePostRequest(setLoading, "api/categories", data, "Category", reset, redirect);
     setImageUrl("");
+    router.back()
     console.log(data);
   };
   return (
