@@ -1,25 +1,34 @@
 "use client";
-
-import FormHeader from "@/src/components/backoffice/category/newCategories/FormHeader";
-import TextInput from "@/src/components/backoffice/category/newCategories/Inputs/TextInput";
-import TextareaInput from "@/src/components/backoffice/category/newCategories/Inputs/TextArea";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import SubmitButton from "@/src/components/backoffice/category/newCategories/SubmitButton";
+// COMPONENTS
+import FormHeader from "@/src/components/backoffice/category/newCategories/FormHeader";
 import generateSlug from "@/src/lib/generateSlug";
+// INPUTS
+import TextInput from "@/src/components/backoffice/category/newCategories/Inputs/TextInput";
+import TextareaInput from "@/src/components/backoffice/category/newCategories/Inputs/TextArea";
+import SubmitButton from "@/src/components/backoffice/category/newCategories/SubmitButton";
 import ImageInput from "@/src/components/backoffice/category/newCategories/Inputs/ImageInput";
+// API request
+import { makePostRequest } from "@/src/lib/apiRequest/makePostRequest";
+import { makePutRequest } from "@/src/lib/apiRequest/makePutRequest";
 const NewCategory = ({ isUpdate = false }) => {
   const [loading, setLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState("")
+  const [imageUrl, setImageUrl] = useState("");
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = async (data) => {
     const slug = generateSlug(data.title);
     data.slug = slug;
     data.imageUrl = imageUrl;
+
+    makePostRequest(setLoading, "api/categories", data, "Category", reset);
+    setImageUrl("");
     console.log(data);
   };
   return (
@@ -51,7 +60,12 @@ const NewCategory = ({ isUpdate = false }) => {
             name="description"
             errors={errors}
           />
-          <ImageInput label="Category Image" imageUrl={imageUrl} setImageUrl={setImageUrl} endpoint="categoryImageUploader" />
+          <ImageInput
+            label="Category Image"
+            imageUrl={imageUrl}
+            setImageUrl={setImageUrl}
+            endpoint="categoryImageUploader"
+          />
           <SubmitButton
             isLoading={loading}
             title={isUpdate ? "Updated Category" : "New Category"}
