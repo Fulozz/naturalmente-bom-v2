@@ -1,6 +1,6 @@
 import React from "react";
 import { Search, Upload, Download, Trash2 } from "lucide-react";
-const TableActions = () => {
+const TableActions = ({title}) => {
   return (
     // {/* Table Actions */}
     //   {/*  TODO: functions of Export || Import || Search || Bulk / Delete  */}
@@ -23,7 +23,7 @@ const TableActions = () => {
             type="text"
             id="table-search"
             className="block py-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg  bg-gray-50 focus:ring-emerald-500 focus:border-emerald-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-500 dark:focus:border-emerald-500 w-full"
-            placeholder="Search for categories"
+            placeholder={`Search for ${title}`}
           />
         </div>
       </div>

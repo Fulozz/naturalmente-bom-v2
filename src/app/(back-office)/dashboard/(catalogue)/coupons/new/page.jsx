@@ -12,9 +12,9 @@ import SubmitButton from "@/src/components/backoffice/category/newCategories/Sub
 import ImageInput from "@/src/components/backoffice/category/newCategories/Inputs/ImageInput";
 // API request
 import { makePostRequest } from "@/src/lib/apiRequest/makePostRequest";
-import { makePutRequest } from "@/src/lib/apiRequest/makePutRequest";
+
 import { redirect } from "next/navigation";
-const NewCategory = ({ isUpdate = false }) => {
+const NewCoupon = ({ isUpdate = false }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
@@ -29,8 +29,10 @@ const NewCategory = ({ isUpdate = false }) => {
     const slug = generateSlug(data.title);
     data.slug = slug;
     data.imageUrl = imageUrl;
+    data.status =  ""
 
-    makePostRequest(setLoading, "api/categories", data, "Category", reset, redirect);
+
+    makePostRequest(setLoading, "api/coupons", data, "Category", reset, redirect);
     setImageUrl("");
     router.back()
     console.log(data);
@@ -53,9 +55,9 @@ const NewCategory = ({ isUpdate = false }) => {
       >
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <TextInput
-            label="Category Title"
+            label="Campain Name"
             register={register}
-            name="title"
+            name="campain Name"
             errors={errors}
           />
           <TextareaInput
@@ -65,14 +67,14 @@ const NewCategory = ({ isUpdate = false }) => {
             errors={errors}
           />
           <ImageInput
-            label="Category Image"
+            label="Coupon Image"
             imageUrl={imageUrl}
             setImageUrl={setImageUrl}
             endpoint="imageUploader"
           />
           <SubmitButton
             isLoading={loading}
-            title={isUpdate ? "Updated Category" : "New Category"}
+            title={isUpdate ? "Updated Coupon" : "New Coupon"}
           />
         </div>
       </form>
@@ -80,4 +82,4 @@ const NewCategory = ({ isUpdate = false }) => {
   );
 };
 
-export default NewCategory;
+export default NewCoupon;

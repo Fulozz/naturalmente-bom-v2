@@ -8,7 +8,7 @@ const page = () => {
   return (
     <div>
       <PageHeader heading="Categories" href={href} linkTitle={linkTitle} />
-      <TableActions />
+      <TableActions title="Categories" />
       <div className="py-6">
         {/* TODO: Table */}
         <h2>Table</h2>
