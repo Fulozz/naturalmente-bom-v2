@@ -5,7 +5,7 @@ import DataTable from "@/src/components/backoffice/reusableComponents/components
 
 const page = () => {
   const href = "/dashboard/coupons/new";
-  const linkTitle = "Add Category";
+  const linkTitle = "Add Coupon";
   return (
     <div>
       <PageHeader heading="coupons" href={href} linkTitle={linkTitle} />

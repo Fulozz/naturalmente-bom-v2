@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import FormHeader from "@/src/components/backoffice/reusableComponents/components/FormHeader";
 import generateSlug from "@/src/lib/generateSlug";
 // INPUTS
-import TextInput from "@/src/components/backoffice/reusableComponents/components/inputs/TextInput";
+import InputComponent from "@/src/components/backoffice/reusableComponents/components/inputs/InputComponent";
 import TextareaInput from "@/src/components/backoffice/reusableComponents/components/inputs/TextArea";
 import SubmitButton from "@/src/components/backoffice/reusableComponents/components/inputs/SubmitButton";
 import ImageInput from "@/src/components/backoffice/reusableComponents/components/inputs/ImageInput"
@@ -53,7 +53,7 @@ const NewCategory = ({ isUpdate = false }) => {
         className="w-full max-w-4xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-700 dark:border-gray-700 mx-auto my-3"
       >
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-          <TextInput
+          <InputComponent
             label="Category Title"
             register={register}
             name="title"

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import FormHeader from "@/src/components/backoffice/reusableComponents/components/FormHeader";
 import generateSlug from "@/src/lib/generateSlug";
 // INPUTS
-import TextInput from "@/src/components/backoffice/reusableComponents/components/inputs/TextInput";
+import InputComponent from "@/src/components/backoffice/reusableComponents/components/inputs/InputComponent";
 import TextareaInput from "@/src/components/backoffice/reusableComponents/components/inputs/TextArea";
 import SubmitButton from "@/src/components/backoffice/reusableComponents/components/inputs/SubmitButton";
 
@@ -39,7 +39,7 @@ const NewCoupon = ({ isUpdate = false }) => {
   };
   return (
     <div>
-      <FormHeader title="New Category" />
+      <FormHeader title="New Coupon" />
       {/* 
         This data abouve is the data that we need to create a new category
         - id = auto()
@@ -54,23 +54,27 @@ const NewCoupon = ({ isUpdate = false }) => {
         className="w-full max-w-4xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-700 dark:border-gray-700 mx-auto my-3"
       >
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-          <TextInput
+          <InputComponent
             label="Coupon Title"
             register={register}
             name="couponTitle"
             errors={errors}
           />
-          <TextInput
+          <InputComponent
             label="Coupon Discount"
+            type="number"
             register={register}
             name="couponDiscount"
             errors={errors}
+            className="w-full"
           />
-          <TextareaInput
-            label="Description"
+          <InputComponent
+            label="Expiry Date"
+            type="date"
             register={register}
-            name="description"
+            name="expiryDate"
             errors={errors}
+            className="w-full"
           />
           <SubmitButton
             isLoading={loading}

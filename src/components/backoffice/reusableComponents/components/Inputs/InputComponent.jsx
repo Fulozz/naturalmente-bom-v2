@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-const TextInput = ({
+const InputComponent = ({
   label,
   name,
   register,
@@ -41,4 +41,4 @@ const TextInput = ({
   );
 };
 
-export default TextInput;
+export default InputComponent;

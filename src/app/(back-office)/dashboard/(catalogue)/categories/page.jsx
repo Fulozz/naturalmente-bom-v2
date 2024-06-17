@@ -11,7 +11,7 @@ const page = () => {
       <PageHeader heading="Categories" href={href} linkTitle={linkTitle} />
       <TableActions title="Categories" />
       <div className="py-6">
-        {/* TODO: Table */}
+        {/* TODO: Table datas to mockup */}
         <DataTable />
       </div>
     </div>
