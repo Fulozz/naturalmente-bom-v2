@@ -22,15 +22,9 @@ import notifications from "./mock/notificationsMockup.json";
 import Notifications from "./notifications/Notifications.navbar.jsx";
 
 import ThemeSwitcher from "./ThemeSwitcher";
-import useOpenActiveState from "@/src/hooks/useOpenActiveState";
+
 import logo_light_mode from "@/public/logo_light_mode.png";
 const Navbar = ({ user, toggleActive }) => {
-  const { isActiveState } = useOpenActiveState(false); // Initial state
-
-  const sidebarController = () => {
-    toggleActive(!isActiveState); // Toggle state
-    toggleActive(isActiveState); // Update parent state if provided
-  };
 
   return (
     <div className="flex items-center justify-between bg-white dark:bg-slate-800 text-emerald-700 h-20 py-8 fixed top-0 w-full px-8 z-40 pl-[6.5rem] ">

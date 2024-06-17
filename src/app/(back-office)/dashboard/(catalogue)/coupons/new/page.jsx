@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 // COMPONENTS
-import FormHeader from "@/src/components/backoffice/category/newCategories/FormHeader";
+import FormHeader from "@/src/components/backoffice/reusableComponents/components/FormHeader";
 import generateSlug from "@/src/lib/generateSlug";
 // INPUTS
-import TextInput from "@/src/components/backoffice/category/newCategories/Inputs/TextInput";
-import TextareaInput from "@/src/components/backoffice/category/newCategories/Inputs/TextArea";
-import SubmitButton from "@/src/components/backoffice/category/newCategories/SubmitButton";
-import ImageInput from "@/src/components/backoffice/category/newCategories/Inputs/ImageInput";
+import TextInput from "@/src/components/backoffice/reusableComponents/components/inputs/TextInput";
+import TextareaInput from "@/src/components/backoffice/reusableComponents/components/inputs/TextArea";
+import SubmitButton from "@/src/components/backoffice/reusableComponents/components/inputs/SubmitButton";
+
 // API request
 import { makePostRequest } from "@/src/lib/apiRequest/makePostRequest";
 
@@ -17,7 +17,7 @@ import { redirect } from "next/navigation";
 const NewCoupon = ({ isUpdate = false }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState("");
+  
   const {
     register,
     reset,
@@ -44,9 +44,9 @@ const NewCoupon = ({ isUpdate = false }) => {
         This data abouve is the data that we need to create a new category
         - id = auto()
         - title
-        - slug => auto()
-        - description
-        - image        
+        - couponCode => auto()
+        - Discount %
+        - expiryDate     
         */}
       {/* FORM */}
       <form
@@ -55,15 +55,15 @@ const NewCoupon = ({ isUpdate = false }) => {
       >
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <TextInput
-            label="Campain Name"
+            label="Coupon Title"
             register={register}
-            name="campainName"
+            name="couponTitle"
             errors={errors}
           />
           <TextInput
-            label="Campain Code"
+            label="Coupon Discount"
             register={register}
-            name="campainCode"
+            name="couponDiscount"
             errors={errors}
           />
           <TextareaInput
@@ -71,12 +71,6 @@ const NewCoupon = ({ isUpdate = false }) => {
             register={register}
             name="description"
             errors={errors}
-          />
-          <ImageInput
-            label="Coupon Image"
-            imageUrl={imageUrl}
-            setImageUrl={setImageUrl}
-            endpoint="imageUploader"
           />
           <SubmitButton
             isLoading={loading}

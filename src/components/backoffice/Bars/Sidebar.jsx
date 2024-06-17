@@ -1,8 +1,7 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
-import logo_light_mode from "@/public/logo_light_mode.png";
-import Image from "next/image";
+
 import { usePathname } from "next/navigation";
 import { cn } from "@/src/lib/cn";
 import { sidebarLinks } from "./config/mapLinks.config";

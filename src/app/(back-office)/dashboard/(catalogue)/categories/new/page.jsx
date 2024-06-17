@@ -1,18 +1,19 @@
 "use client";
+
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 // COMPONENTS
-import FormHeader from "@/src/components/backoffice/category/newCategories/FormHeader";
+import FormHeader from "@/src/components/backoffice/reusableComponents/components/FormHeader";
 import generateSlug from "@/src/lib/generateSlug";
 // INPUTS
-import TextInput from "@/src/components/backoffice/category/newCategories/Inputs/TextInput";
-import TextareaInput from "@/src/components/backoffice/category/newCategories/Inputs/TextArea";
-import SubmitButton from "@/src/components/backoffice/category/newCategories/SubmitButton";
-import ImageInput from "@/src/components/backoffice/category/newCategories/Inputs/ImageInput";
+import TextInput from "@/src/components/backoffice/reusableComponents/components/inputs/TextInput";
+import TextareaInput from "@/src/components/backoffice/reusableComponents/components/inputs/TextArea";
+import SubmitButton from "@/src/components/backoffice/reusableComponents/components/inputs/SubmitButton";
+import ImageInput from "@/src/components/backoffice/reusableComponents/components/inputs/ImageInput"
 // API request
 import { makePostRequest } from "@/src/lib/apiRequest/makePostRequest";
-import { makePutRequest } from "@/src/lib/apiRequest/makePutRequest";
+
 import { redirect } from "next/navigation";
 const NewCategory = ({ isUpdate = false }) => {
   const router = useRouter();

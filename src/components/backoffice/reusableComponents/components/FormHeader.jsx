@@ -1,5 +1,5 @@
 import React from "react";
-import Heading from "../../Heading";
+import Heading from "../Heading";
 import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
 

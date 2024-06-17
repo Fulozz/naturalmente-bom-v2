@@ -1,6 +1,6 @@
 import React from "react";
-import PageHeader from "@/src/components/backoffice/category/PageHeader";
-import TableActions from "@/src/components/backoffice/category/TableActions";
+import PageHeader from "@/src/components/backoffice/reusableComponents/PageHeader";
+import TableActions from "@/src/components/backoffice/reusableComponents/TableActions";
 
 const page = () => {
   const href = "/dashboard/categories/new";

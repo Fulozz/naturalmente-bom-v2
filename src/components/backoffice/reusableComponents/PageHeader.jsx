@@ -1,4 +1,4 @@
-import Heading from "@/src/components/backoffice/Heading";
+import Heading from "@/src/components/backoffice/reusableComponents/Heading";
 import Link from "next/link";
 import React from "react";
 import { Plus } from "lucide-react";

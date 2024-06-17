@@ -1,5 +1,5 @@
 import React from "react";
-import Heading from "@/src/components/backoffice/Heading";
+import Heading from "@/src/components/backoffice/reusableComponents/Heading";
 import LargeCards from "@/src/components/backoffice/Cards/large/LargeCards";
 import SmallCards from "@/src/components/backoffice/Cards/small/SmallCards";
 import DashboardChart from "@/src/components/backoffice/Charts/DashboardChart";
