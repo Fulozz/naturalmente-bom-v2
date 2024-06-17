@@ -26,16 +26,16 @@ const NewCoupon = ({ isUpdate = false }) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const slug = generateSlug(data.title);
-    data.slug = slug;
-    data.imageUrl = imageUrl;
+    // const slug = generateSlug(data.title);
+    // data.slug = slug;
+    // data.imageUrl = imageUrl;
     data.status =  ""
 
-
-    makePostRequest(setLoading, "api/coupons", data, "Category", reset, redirect);
-    setImageUrl("");
-    router.back()
     console.log(data);
+    // makePostRequest(setLoading, "api/coupons", data, "Category", reset, redirect);
+    // setImageUrl("");
+    // router.back()
+    
   };
   return (
     <div>
@@ -57,7 +57,13 @@ const NewCoupon = ({ isUpdate = false }) => {
           <TextInput
             label="Campain Name"
             register={register}
-            name="campain Name"
+            name="campainName"
+            errors={errors}
+          />
+          <TextInput
+            label="Campain Code"
+            register={register}
+            name="campainCode"
             errors={errors}
           />
           <TextareaInput
