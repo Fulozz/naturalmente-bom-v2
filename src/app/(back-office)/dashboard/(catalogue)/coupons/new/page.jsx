@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import toast from 'react-hot-toast';
 // COMPONENTS
 import FormHeader from "@/src/components/backoffice/reusableComponents/components/FormHeader";
 import generateSlug from "@/src/lib/generateSlug";
@@ -14,6 +15,7 @@ import SubmitButton from "@/src/components/backoffice/reusableComponents/compone
 import { makePostRequest } from "@/src/lib/apiRequest/makePostRequest";
 
 import { redirect } from "next/navigation";
+import generateCouponCode from "@/src/lib/generateCouponCode";
 const NewCoupon = ({ isUpdate = false }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -26,16 +28,28 @@ const NewCoupon = ({ isUpdate = false }) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    // const slug = generateSlug(data.title);
-    // data.slug = slug;
-    // data.imageUrl = imageUrl;
-    data.status =  ""
-
-    console.log(data);
-    // makePostRequest(setLoading, "api/coupons", data, "Category", reset, redirect);
-    // setImageUrl("");
-    // router.back()
-    
+    if(data.couponDiscount < 100){
+      const couponCode = generateCouponCode(data.couponDiscount, data.couponTitle)
+      console.log(couponCode)
+      data.couponCode= couponCode;
+      
+      const initialStatus = "disable"
+      
+      const montedData = {
+        "couponTitle" :  data.couponTitle,
+        "couponDiscount" : data.couponDiscount,
+        "status": initialStatus,
+        "couponCode" : data.couponCode,
+        "startDate" : data.startDate,
+        "endDate" : data.endDate
+      }
+      makePostRequest(setLoading, "api/coupons", montedData, "Coupon", reset, redirect);
+      console.log(montedData);
+      router.back()
+    }
+    if(data.couponDiscount > 100){
+      toast.error("Verifique o desconto")
+    }
   };
   return (
     <div>
@@ -66,13 +80,21 @@ const NewCoupon = ({ isUpdate = false }) => {
             register={register}
             name="couponDiscount"
             errors={errors}
+            placeholder="Digite a porcentagem de desconto"
+          />
+          <InputComponent
+            label="Initial Date"
+            type="date"
+            register={register}
+            name="startDate"
+            errors={errors}
             className="w-full"
           />
           <InputComponent
             label="Expiry Date"
             type="date"
             register={register}
-            name="expiryDate"
+            name="endDate"
             errors={errors}
             className="w-full"
           />

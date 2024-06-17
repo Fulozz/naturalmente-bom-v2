@@ -3,8 +3,8 @@ import {NextResponse} from 'next/server';
 
 export async function POST(request){
     try{
-        const { campainName, code, discount, startDate, endDate } = await request.json();
-        const newCoupon = { campainName, code, discount, startDate, endDate }
+        const { couponTitle, couponCode, couponDiscount, status, startDate, endDate } = await request.json();
+        const newCoupon = { couponTitle, couponCode, couponDiscount, startDate, endDate }
         console.log(newCoupon)
         return  NextResponse.json(newCoupon )
     } catch(error) {
