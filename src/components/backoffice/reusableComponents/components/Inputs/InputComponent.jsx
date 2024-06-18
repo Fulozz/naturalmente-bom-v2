@@ -48,7 +48,7 @@ const InputComponent = ({
         {errors[`${name}`] && (
           <p className="mt-2 text-sm text-red-600" id="email-error">
             {errors[`${name}`] && (
-          <span className="text-sm text-red-600 ">{label} is required</span>
+          <span className="text-sm text-red-600 ">{label} é obrigatório</span>
         )}
           </p>
         )}

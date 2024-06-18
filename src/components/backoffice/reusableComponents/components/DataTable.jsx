@@ -23,7 +23,7 @@ export default function DataTable({
                   );
                 })}
                 <th scope="col" className="px-6 py-3">
-                  Actions
+                  Ações
                 </th>
               </tr>
             </thead>
@@ -72,7 +72,7 @@ export default function DataTable({
                           className="font-medium text-blue-600 dark:text-blue-500 flex items-center space-x-1"
                         >
                           <Pencil className="w-4 h-4" />
-                          <span>Edit</span>
+                          <span>Editar</span>
                         </Link>
                       )}
                       <DeleteBtn id={item.id} endpoint={resourceTitle} />
@@ -84,7 +84,7 @@ export default function DataTable({
           </table>
         ) : (
           <p className="p-4 text-xl bg-white text-center text-emerald-700 dark:text-emerald-500  dark:bg-slate-700">
-            There is No Data to Display
+            Não há nada para mostrar
           </p>
         )}
       </div>
