@@ -23,6 +23,7 @@ const NewCoupon = ({ isUpdate = false }) => {
   const {
     register,
     reset,
+    watch,
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -32,16 +33,22 @@ const NewCoupon = ({ isUpdate = false }) => {
       const couponCode = generateCouponCode(data.couponDiscount, data.couponTitle)
       console.log(couponCode)
       data.couponCode= couponCode;
-      
+
       const initialStatus = "disable"
-      
+
+      function ChangeFormateDate(date){
+        var p = date.split(/\D/g)
+        return [p[2],p[1],p[0] ].join("/")
+     }
+     const startDate = ChangeFormateDate(data.startDate)
+     const expiryDate = ChangeFormateDate(data.expiryDate)
       const montedData = {
         "couponTitle" :  data.couponTitle,
         "couponDiscount" : data.couponDiscount,
         "status": initialStatus,
         "couponCode" : data.couponCode,
-        "startDate" : data.startDate,
-        "endDate" : data.endDate
+        "startDate" : startDate,
+        "endDate" : expiryDate
       }
       makePostRequest(setLoading, "api/coupons", montedData, "Coupon", reset, redirect);
       console.log(montedData);
@@ -94,7 +101,7 @@ const NewCoupon = ({ isUpdate = false }) => {
             label="Expiry Date"
             type="date"
             register={register}
-            name="endDate"
+            name="expiryDate"
             errors={errors}
             className="w-full"
           />
