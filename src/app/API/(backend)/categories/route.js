@@ -9,6 +9,6 @@ export async function POST(request){
         return  NextResponse.json(newCategory )
     } catch(error) {
         console.log(error)
-        return NextResponse.JSON({message: "Server error", error}, { status : 500})
+        return NextResponse.JSON({message: "Falhou ao criar a Categoria", error}, { status : 500})
     }
 }

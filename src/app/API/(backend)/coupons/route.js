@@ -9,6 +9,6 @@ export async function POST(request){
         return  NextResponse.json(newCoupon)
     } catch(error) {
         console.log(error)
-        return NextResponse.JSON({message: "Server error", error}, { status : 500})
+        return NextResponse.JSON({message: "Falhou ao criar o coupon", error}, { status : 500})
     }
 }
