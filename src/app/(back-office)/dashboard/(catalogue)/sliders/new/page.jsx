@@ -54,6 +54,12 @@ const NewSlider = ({ isUpdate = false }) => {
             name="url"
             errors={errors}
           />
+          <TextareaInput
+            label="Description"
+            register={register}
+            name="description"
+            errors={errors}
+          />
           <ImageInput
             label="Slider Image"
             imageUrl={imageUrl}
