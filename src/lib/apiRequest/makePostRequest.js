@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 
 export async function makePostRequest(
-    setLoading, endpoint, data, resourceName, reset, redirect
+    setLoading, endpoint, data, resourceName, reset
 ) {
     try {
         setLoading(true);
