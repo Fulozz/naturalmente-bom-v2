@@ -27,7 +27,7 @@ const ImageInput = ({
             className="flex space-x-2  bg-slate-900 rounded-md shadow text-slate-50  py-2 px-4"
           >
             <Pencil className="w-5 h-5" />
-            <span>Change Image</span>
+            <span>Alterar Imagem</span>
           </button>
         )}
       </div>
@@ -47,12 +47,12 @@ const ImageInput = ({
             setImageUrl(res[0].url);
             // Do something with the response
             console.log("Files: ", res[0].url);
-            toast.success("Image Upload Complete")
+            toast.success("Carregamento de imagem concluido")
           }}
           onUploadError={(error) => {
             // Do something with the error.
             console.log(`ERROR! ${error.message}`);
-            toast.error("Image Upload Failed, try again")
+            toast.error("Carregamento de imagem falhou, tente novamente")
           }}
         />
       )}

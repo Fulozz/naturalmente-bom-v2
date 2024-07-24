@@ -17,19 +17,14 @@ import {
 
 export const catalogueLinks = [
   {
-    title: "Products",
+    title: "Produtos",
     href: "/dashboard/products",
     icon: Boxes,
   },
   {
-    title: "Categories",
+    title: "Categorias",
     href: "/dashboard/categories",
     icon: LayoutList,
-  },
-  {
-    title: "Attributes",
-    href: "/dashboard/attributes",
-    icon: SendToBack,
   },
   {
     title: "Coupons",
@@ -45,12 +40,12 @@ export const catalogueLinks = [
 
 export const sidebarLinks = [
   {
-    title: "Customers",
+    title: "Clientes",
     icon: Users,
     href: "/dashboard/customers",
   },
   {
-    title: "Markets",
+    title: "Lojas",
     icon: Warehouse,
     href: "/dashboard/markets",
   },
@@ -60,22 +55,22 @@ export const sidebarLinks = [
     href: "/dashboard/orders",
   },
   {
-    title: "Farmers",
+    title: "Produtores",
     icon: SquareUser,
     href: "/dashboard/farmers",
   },
   {
-    title: "Staff",
+    title: "Equipe",
     icon: ContactRound,
     href: "/dashboard/staff",
   },
   {
-    title: "Community",
+    title: "Comunidade",
     icon: Building2,
     href: "/dashboard/community",
   },
   {
-    title: "Wallet",
+    title: "Carteira",
     icon: CircleDollarSign,
     href: "/dashboard/wallet",
   },
@@ -86,7 +81,7 @@ export const sidebarLinks = [
   },
   ,
   {
-    title: "Online Store",
+    title: "Loja Online",
     icon: ExternalLink,
     href: "/dashboard/online_store",
   },

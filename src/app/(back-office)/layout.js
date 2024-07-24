@@ -7,8 +7,8 @@ import profileImage from "./mock/image/profileImage.png";
 import useOpenActiveState from "@/src/hooks/useOpenActiveState";
 
 function Layout({ children }) {
-  // Query of the database userInfo
-  const user = {
+   // Query of the database userInfo
+   const user = {
     userId: 123,
     userFirstName: "Thiago",
     userFullName: "Thiago Silva Andrade",
@@ -16,6 +16,7 @@ function Layout({ children }) {
     userProfileImage: profileImage,
     userNotification: 10,
   };
+
 
   return (
     <>

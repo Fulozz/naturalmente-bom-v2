@@ -60,20 +60,20 @@ const NewCoupon = ({ isUpdate = false }) => {
   };
   return (
     <div>
-      <FormHeader title="New Coupon" />
+      <FormHeader title="Novo coupon" />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-4xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-700 dark:border-gray-700 mx-auto my-3"
       >
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <InputComponent
-            label="Coupon Title"
+            label="Titulo do coupon"
             register={register}
             name="couponTitle"
             errors={errors}
           />
           <InputComponent
-            label="Coupon Discount"
+            label="Disconto do Coupon"
             type="number"
             register={register}
             name="couponDiscount"
@@ -81,7 +81,7 @@ const NewCoupon = ({ isUpdate = false }) => {
             placeholder="Digite a porcentagem de desconto"
           />
           <InputComponent
-            label="Initial Date"
+            label="Data de inicio"
             type="date"
             register={register}
             name="startDate"
@@ -89,7 +89,7 @@ const NewCoupon = ({ isUpdate = false }) => {
             className="w-full"
           />
           <InputComponent
-            label="Expiry Date"
+            label="Data de validade"
             type="date"
             register={register}
             name="expiryDate"
@@ -98,7 +98,7 @@ const NewCoupon = ({ isUpdate = false }) => {
           />
           <SubmitButton
             isLoading={loading}
-            title={isUpdate ? "Updated Coupon" : "New Coupon"}
+            title={isUpdate ? "Atualizar Coupon" : "Novo Coupon"}
           />
         </div>
       </form>

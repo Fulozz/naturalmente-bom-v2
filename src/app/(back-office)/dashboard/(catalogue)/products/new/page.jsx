@@ -19,22 +19,14 @@ import SelectInput from "@/src/components/backoffice/reusableComponents/componen
 const NewCategory = ({ isUpdate = false }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const markets =  [
+  const category =  [
     {
       id: 1,
-      title: "Sproutes Farmers Market",
+      title: "fresh-fruit",
     },
     {
       id: 2,
-      title: "Cabbage Farmers Market",
-    },
-    {
-      id: 3,
-      title: "Lettucee Farmers Market",
-    },
-    {
-      id: 4,
-      title: "Carrots Farmers Market",
+      title: "meat"
     }
   ]
   const [imageUrl, setImageUrl] = useState("");
@@ -57,57 +49,42 @@ const NewCategory = ({ isUpdate = false }) => {
   };
   return (
     <div>
-      <FormHeader title="New Category" />
+      <FormHeader title="Novo produto" />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-4xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-700 dark:border-gray-700 mx-auto my-3"
       >
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <InputComponent
-            label="Nome do cliente"
+            label="Nome do Produto"
             register={register}
-            name="clientName"
+            name="title"
             errors={errors}
             className="w-full"
           />
-          <InputComponent
-            label="Telefone do cliente"
+          <SelectInput
+            label="Selecione a categoria"
+            name="categoryID"
             register={register}
-            name="telNumber"
-            type="tel"
             errors={errors}
-            className="w-full"
-          />
-          <InputComponent
-            label="Rua do cliente"
-            register={register}
-            name="streetAddress"
-            errors={errors}
-            className="w-full"
-          />
-          <InputComponent
-            label="Numero da casa"
-            register={register}
-            name="houseNumber"
-            type="number"
-            errors={errors}
+            options={category}
             className="w-full"
           />
           <TextareaInput
-            label="Description"
+            label="Descrição"
             register={register}
             name="description"
             errors={errors}
           />
           <ImageInput
-            label="Category Image"
+            label="Imagem do produto"
             imageUrl={imageUrl}
             setImageUrl={setImageUrl}
             endpoint="imageUploader"
           />
           <SubmitButton
             isLoading={loading}
-            title={isUpdate ? "Updated Category" : "New Category"}
+            title={isUpdate ? "Atualizar produto" : "Novo produto"}
           />
         </div>
       </form>

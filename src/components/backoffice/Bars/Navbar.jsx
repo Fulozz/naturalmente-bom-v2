@@ -43,7 +43,7 @@ const Navbar = ({ user, toggleActive }) => {
           <DropdownMenu className="relative inline-flex items-center pr-2 text-sm font-medium text-center text-white bg-transparent rounded-lg">
             <DropdownMenuTrigger>
               <Bell className="text-green-600" />
-              <span className="sr-only">Notifications</span>
+              <span className="sr-only">Notificaçõees</span>
               {user.userNotification > 0 ? (
                 <div
                   data-testid="userNotification"
@@ -71,7 +71,7 @@ const Navbar = ({ user, toggleActive }) => {
             )}
           </DropdownMenuTrigger>
           <DropdownMenuContent className="px-4 py-2 pr-8">
-            <DropdownMenuLabel>Settings</DropdownMenuLabel>
+            <DropdownMenuLabel>Configurações</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <button className="flex items-center space-x-2">
@@ -82,13 +82,13 @@ const Navbar = ({ user, toggleActive }) => {
             <DropdownMenuItem>
               <button className="flex items-center space-x-2">
                 <Settings className="mr-2 h-4 w-4" />
-                <span>Edit profile</span>
+                <span>Editar perfil</span>
               </button>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <button className="flex items-center space-x-2">
                 <LogOut className="mr-2 h-4 w-4" />
-                <span>LogOut</span>
+                <span>Sair</span>
               </button>
             </DropdownMenuItem>
           </DropdownMenuContent>

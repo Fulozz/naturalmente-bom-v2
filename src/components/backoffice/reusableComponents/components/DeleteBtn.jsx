@@ -13,23 +13,24 @@ export default function DeleteBtn({ id, endpoint }) {
   async function handleDelete() {
     setLoading(true);
     Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      title: "Tem certeza?",
+      text: "Não será possivel reverter!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Sim, deletar!",
     }).then(async (result) => {
       if (result.isConfirmed) {
         const res = await fetch(`${baseUrl}/api/${endpoint}?id=${id}`, {
-          method: "DELETE",
+          method: "update",
+          // Alterar estado para invisivel, excluindo apenas virtualmente mas sendo possivel reverter em uma emergencia
         });
         console.log(res);
         if (res.ok) {
           router.refresh();
           setLoading(false);
-          toast.success("Deleted Successfully");
+          toast.success("Deletado com sucesso");
         }
       } else {
         setLoading(false);
@@ -61,7 +62,7 @@ export default function DeleteBtn({ id, endpoint }) {
               fill="currentColor"
             />
           </svg>
-          Deleting Please wait...
+          Deletando por favor aguardee...
         </button>
       ) : (
         <button

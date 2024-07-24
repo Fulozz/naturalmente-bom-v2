@@ -57,21 +57,21 @@ const NewCategory = ({ isUpdate = false }) => {
   };
   return (
     <div>
-      <FormHeader title="New Category" />
+      <FormHeader title="Nova Categoria" />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-4xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-700 dark:border-gray-700 mx-auto my-3"
       >
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <InputComponent
-            label="Category Title"
+            label="Titulo da categoria"
             register={register}
             name="title"
             errors={errors}
             className="w-full"
           />
           <SelectInput
-            label="Select Market"
+            label="Selecione o mercado"
             name="marketsID"
             register={register}
             errors={errors}
@@ -79,20 +79,20 @@ const NewCategory = ({ isUpdate = false }) => {
             className="w-full"
           />
           <TextareaInput
-            label="Description"
+            label="Descrição da categoria"
             register={register}
             name="description"
             errors={errors}
           />
           <ImageInput
-            label="Category Image"
+            label="Imagem da categoria"
             imageUrl={imageUrl}
             setImageUrl={setImageUrl}
             endpoint="imageUploader"
           />
           <SubmitButton
             isLoading={loading}
-            title={isUpdate ? "Updated Category" : "New Category"}
+            title={isUpdate ? "Atualizar cateogira" : "Nova categoria"}
           />
         </div>
       </form>

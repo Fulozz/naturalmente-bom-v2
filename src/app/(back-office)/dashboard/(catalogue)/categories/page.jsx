@@ -5,11 +5,11 @@ import DataTable from "@/src/components/backoffice/reusableComponents/components
 
 const page = () => {
   const href = "/dashboard/categories/new";
-  const linkTitle = "Add Category";
+  const linkTitle = "Nova Categoria";
   return (
     <div>
-      <PageHeader heading="Categories" href={href} linkTitle={linkTitle} />
-      <TableActions title="Categories" />
+      <PageHeader heading="Categorias" href={href} linkTitle={linkTitle} />
+      <TableActions title="Categorias" />
       <div className="py-6">
         {/* TODO: Table datas to mockup */}
         <DataTable />

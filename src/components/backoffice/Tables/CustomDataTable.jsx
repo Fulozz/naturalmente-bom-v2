@@ -40,19 +40,19 @@ const CustomDataTable = () => {
                 ID
               </th>
               <th scope="col" className="px-6 py-3">
-                First Name
+                Nome
               </th>
               <th scope="col" className="px-6 py-3">
-                Last Name
+                Ultimo nome 
               </th>
               <th scope="col" className="px-6 py-3">
                 Email
               </th>
               <th scope="col" className="px-6 py-3">
-                Gender
+                Genero
               </th>
               <th scope="col" className="px-6 py-3">
-                Action
+                Ações
               </th>
             </tr>
           </thead>
@@ -95,7 +95,7 @@ const CustomDataTable = () => {
                   <td className="px-6 py-4">{item.gender}</td>
                   <td className="px-6 py-4">
                     <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                      Edit
+                      Editar
                     </button>
                   </td>
                 </tr>
@@ -108,11 +108,11 @@ const CustomDataTable = () => {
           aria-label="Table navigation"
         >
           <span className="text-base font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">
-            Showing{" "}
+            Mostrando{" "}
             <span className="font-semibold text-gray-900 dark:text-white">
               {itemStartIndex}-{itemEndIndex}
             </span>{" "}
-            of{" "}
+            de{" "}
             <span className="font-semibold text-gray-900 dark:text-white">
               {itemTotalIndex}
             </span>
@@ -124,7 +124,7 @@ const CustomDataTable = () => {
                 disabled={currentPage == 1}
                 className="flex items-center justify-center px-3 h-10  ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
-                Previous
+                Voltar
               </button>
             </li>
             {Array.from({ length: numberOfPages }, (_, i) => {
@@ -150,7 +150,7 @@ const CustomDataTable = () => {
                 disabled={currentPage == numberOfPages}
                 className="flex items-center justify-center px-3 h-10  leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
-                Next
+                Proximo
               </button>
             </li>
           </ul>
