@@ -64,18 +64,33 @@ const NewCategory = ({ isUpdate = false }) => {
       >
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <InputComponent
-            label="Category Title"
+            label="Nome do cliente"
             register={register}
-            name="title"
+            name="clientName"
             errors={errors}
             className="w-full"
           />
-          <SelectInput
-            label="Select Market"
-            name="marketsID"
+          <InputComponent
+            label="Telefone do cliente"
             register={register}
+            name="telNumber"
+            type="tel"
             errors={errors}
-            options={markets}
+            className="w-full"
+          />
+          <InputComponent
+            label="Rua do cliente"
+            register={register}
+            name="streetAddress"
+            errors={errors}
+            className="w-full"
+          />
+          <InputComponent
+            label="Numero da casa"
+            register={register}
+            name="houseNumber"
+            type="number"
+            errors={errors}
             className="w-full"
           />
           <TextareaInput

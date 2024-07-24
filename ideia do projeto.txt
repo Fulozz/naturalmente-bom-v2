@@ -1,0 +1,12 @@
+Sistema de agendamento, e anotação.
+    1 - Tela inicial é a tela de login 
+        2 - Se o usuario for autenticado ele vai para a tela com quem tem para entregar no dia, 
+            com canto superior direito a opção de mostrar todos os agendamentos futuros, no canto inferior direito um botão de adicionar/agendar
+            2.1 - Possibilidade de reagendamentos e com troca de estado de entrega (Agendada, Concluida, Cancelada ou Reagendada)
+        3 - Tela de historico com todas as entregas que foram concluidas ou canceladas, com um número relacionado a elas por ordem, 
+            tendo a opção de pesquisar por entregar para cliente (Todas as entregas que fiz para um cliente específico utilizando o id do cliente, nome ou cpf)
+        
+    * Colocar data de entrega
+    * Endereço para onde vai entregar ou para quem
+    * Se já foi entregue ou não, e registrar data de criação e data de conclusão
+    * Criar cadastro para cada cliente e poder pesquisar por nome ou número de telefone igual ao do JERA com (Nome, Endereço, Telefone, se possivel E-mail)
