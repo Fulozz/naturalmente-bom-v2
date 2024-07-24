@@ -60,7 +60,6 @@ const NewCategory = ({ isUpdate = false }) => {
             register={register}
             name="title"
             errors={errors}
-            className="w-full"
           />
           <SelectInput
             label="Selecione a categoria"
@@ -68,6 +67,14 @@ const NewCategory = ({ isUpdate = false }) => {
             register={register}
             errors={errors}
             options={category}
+            className="w-full"
+          />
+          <InputComponent
+            label="Quantidade disponivel"
+            register={register}
+            name="amount"
+            type="number"
+            errors={errors}
             className="w-full"
           />
           <TextareaInput
