@@ -77,6 +77,7 @@ const NewCategory = ({ isUpdate = false }) => {
             errors={errors}
             options={markets}
             className="w-full"
+            hasMultipleSelect={false}
           />
           <TextareaInput
             label="Descrição da categoria"

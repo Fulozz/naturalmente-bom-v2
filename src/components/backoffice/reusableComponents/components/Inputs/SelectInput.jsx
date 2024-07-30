@@ -6,6 +6,7 @@ export default function SelectInput({
   register,
   className = "sm:col-span-2",
   options = [],
+  hasMultipleSelect=false
 }) {
   return (
     <div className={className}>
@@ -19,6 +20,7 @@ export default function SelectInput({
         <select
           {...register(`${name}`)}
           id={name}
+          multiple={false}
           name={name}
           className="block w-full rounded-md border-0 py-3 text-gray-900 shadow-sm dark:text-slate-50 dark:bg-transparent ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-500 sm:text-sm sm:leading-6"
         >

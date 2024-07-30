@@ -11,7 +11,8 @@ const InputComponent = ({
   className = "sm:col-span-2",
   defaultValue = "",
   readOnly="",
-  placeholder=""
+  placeholder="",
+  step="any"
 }) => {
   return (
     <div className={className}>
@@ -40,6 +41,7 @@ const InputComponent = ({
               type={type}
               name={name}
               id={name}
+              step={step}
               defaultValue={defaultValue}
               className="block w-full rounded-md border-0 py-3 text-gray-900 shadow-sm dark:text-slate-50 dark:bg-transparent ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-500 sm:text-sm sm:leading-6"
               placeholder={placeholder ||`Digite o ${label.toLowerCase()}`}

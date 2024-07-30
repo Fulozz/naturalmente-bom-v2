@@ -38,11 +38,9 @@ const NewCategory = ({ isUpdate = false }) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const slug = generateSlug(data.title);
-    data.slug = slug;
+    
     data.imageUrl = imageUrl;
-
-    makePostRequest(setLoading, "api/categories", data, "Category", reset, redirect);
+    makePostRequest(setLoading, "api/products", data, "Product", reset, redirect);
     setImageUrl("");
     router.back()
     console.log(data);
@@ -76,6 +74,16 @@ const NewCategory = ({ isUpdate = false }) => {
             type="number"
             errors={errors}
             className="w-full"
+            step="1"
+          />
+          <InputComponent
+            label="Preço do produto"
+            register={register}
+            name="price"
+            type="number"
+            errors={errors}
+            className="w-full"
+            step="any"
           />
           <TextareaInput
             label="Descrição"
