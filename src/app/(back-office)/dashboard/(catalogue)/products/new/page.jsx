@@ -29,6 +29,20 @@ const NewCategory = ({ isUpdate = false }) => {
       title: "meat"
     }
   ]
+  const farmers = [
+    {
+      id: 1,
+      title: "Farmer 1"
+    },
+    {
+      id: 2,
+      title: "Farmer 2"
+    },
+    {
+      id: 3,
+      title: "Farmer 3"
+    },
+  ]
   const [imageUrl, setImageUrl] = useState("");
   const {
     register,
@@ -38,7 +52,21 @@ const NewCategory = ({ isUpdate = false }) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    
+    {
+      /*
+      -id => auto()
+      -title
+      -slug => auto()
+      -description
+      -image/images
+      -sru
+      -barcode
+      -productPrice
+      -salePrice
+      -category
+      -farmer
+      */
+    }
     data.imageUrl = imageUrl;
     makePostRequest(setLoading, "api/products", data, "Product", reset, redirect);
     setImageUrl("");
@@ -65,6 +93,14 @@ const NewCategory = ({ isUpdate = false }) => {
             register={register}
             errors={errors}
             options={category}
+            className="w-full"
+          />
+          <SelectInput
+            label="Selecione o produtor"
+            name="farmerID"
+            register={register}
+            errors={errors}
+            options={farmers}
             className="w-full"
           />
           <InputComponent
