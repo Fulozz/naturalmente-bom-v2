@@ -43,7 +43,7 @@ const NewCategory = ({ isUpdate = false }) => {
       title: "Farmer 3"
     },
   ]
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState(""); 
   const {
     register,
     reset,
