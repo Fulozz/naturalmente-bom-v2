@@ -40,7 +40,7 @@ export const catalogueLinks = [
 
 export const sidebarLinks = [
   {
-    title: "Clientes",
+    title: "Cliente",
     icon: Users,
     href: "/dashboard/customers",
   },
