@@ -14,10 +14,11 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  name      String?
-  posts     Post[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id              String       @default(cuid()) @id
+  isVerified      Boolean      @default(false)
+  isNewUser       Boolean      @default(true)
+  profileImageUrl String
+  name            String
+  posts           Post[]
+  createdAt       DateTime     @default(now())
 }
